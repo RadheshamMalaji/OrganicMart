@@ -2,6 +2,8 @@ import Navigation from "../../components/Navigation";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
 import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const OrderAddressScreen = (props) => {
   const [id, setId] = useState("");
@@ -11,29 +13,186 @@ const OrderAddressScreen = (props) => {
   const [city, setCity] = useState("");
   const [pinCode, setPinCode] = useState("");
   const [state, setState] = useState("");
+  const [orderid, setOrderId] = useState("");
 
   useEffect(() => {
     let user_Id = window.localStorage.getItem("user_id");
     setId(user_Id);
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
   }, []);
 
-  const addAddress = (e) => {
-    e.preventDefault();
-    let addr = {
-      userId: id,
-      flatNo: flatNo,
-      societyName: societyName,
-      area: area,
-      city: city,
-      pinCode: pinCode,
-      state: state,
-    };
-    ApiCustomerService.addOrderAddress(addr).then((res) => {
-      let id1 = res.data.result;
-      window.localStorage.setItem("address_id", id1);
-      alert("Address added successfully");
-      props.history.push("/cart");
+  const loadScript = async () => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
     });
+  };
+
+  const payment = (e) => {
+    e.preventDefault();
+    // let addr = {
+    //   userId: id,
+    //   flatNo: flatNo,
+    //   societyName: societyName,
+    //   area: area,
+    //   city: city,
+    //   pinCode: pinCode,
+    //   state: state,
+    //   orderId: orderid,
+    // };
+    // ApiCustomerService.addOrderAddress(addr).then((res) => {
+    //   let id1 = res.data.result;
+    //   window.localStorage.setItem("address_id", id1);
+    //   // alert("Address added successfully");
+    //   //props.history.push("/cart");
+    // });
+
+    // let size = JSON.parse(window.localStorage.getItem("cart_size"));
+    // if (size === 0) {
+    //   alert(" !!! Cart Is Empty !!!");
+    // }
+    // if (size !== 0) {
+    // window.localStorage.setItem("add", state.pinCode);
+    // if (st && window.localStorage.getItem("addressStatus") === "false") {
+    //   alert(" !!! Enter Valid Address !!!");
+    // }
+    !window.localStorage.getItem("status") && props.history.push("/login");
+    // if (window.localStorage.getItem("addressStatus") === "true") {
+    const res = loadScript;
+    if (!res) {
+      alert("you are offline !!!");
+    }
+
+    axios
+      .post("http://localhost:8080/customers/create_order", {
+        amount: window.localStorage.getItem("total_price"),
+        info: "order_request",
+      })
+      .then((resp) => {
+        console.log(resp);
+
+        const options = {
+          key: "rzp_test_qvOzalgA1CfPgJ", // Enter the Key ID generated from the Dashboard
+          amount: resp.data.tamt, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+          currency: "INR",
+          name: "SuperTail",
+          description: "Test Transaction",
+          order_id: resp.data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+          handler: function (response) {
+            // setPayment({...payment, cardno:response.razorpay_payment_id})
+            // handleSubmit();
+            console.log(response.razorpay_payment_id);
+            console.log(response.razorpay_order_id);
+            console.log(response.razorpay_signature);
+            setOrderId(response.razorpay_order_id);
+            window.localStorage.setItem("order_id", response.razorpay_order_id);
+
+            console.log("Payment successful !!");
+            //alert("congrates!! Payment successful !!");
+            addDetails();
+
+            let addr = {
+              userId: id,
+              flatNo: flatNo,
+              societyName: societyName,
+              area: area,
+              city: city,
+              pinCode: pinCode,
+              state: state,
+              orderId: response.razorpay_order_id,
+            };
+            console.log(addr);
+            ApiCustomerService.addOrderAddress(addr).then((res) => {
+              let id1 = res.data.result;
+              window.localStorage.setItem("address_id", id1);
+              // alert("Address added successfully");
+              //props.history.push("/cart");
+            });
+            Swal.fire(
+              "Good job!",
+              "Congrates!! Payment successful !!",
+              "success"
+            );
+            props.history.push("/home");
+          },
+          prefill: {
+            name: "",
+            email: "",
+            contact: "",
+          },
+          notes: {
+            address: "Supertail",
+          },
+          theme: {
+            color: "#3399cc",
+          },
+        };
+        const rzp1 = new window.Razorpay(options);
+        rzp1.open();
+      })
+      .catch((error) => {
+        console.log("helloo");
+        console.log(error);
+      });
+    // }
+  };
+
+  const addOrder = () => {
+    ApiCustomerService.addorders(
+      window.localStorage.getItem("total_price"),
+      window.localStorage.getItem("user_id")
+    ).then((res) => {
+      JSON.stringify(window.localStorage.setItem("orderId", res.data.result));
+      addOrderDetail();
+    });
+  };
+
+  const addOrderDetail = () => {
+    ApiCustomerService.addDetails(
+      window.localStorage.getItem("user_id"),
+      JSON.parse(window.localStorage.getItem("orderId"))
+    ).then((res) => {
+      JSON.stringify(
+        window.localStorage.setItem("deliveryBoyId", res.data.result)
+      );
+      paymentDetails();
+    });
+  };
+
+  const paymentDetails = () => {
+    const payment1 = {
+      paymentType: "UPI",
+      deliveryBoyId: JSON.parse(window.localStorage.getItem("deliveryBoyId")),
+      orderId: JSON.parse(window.localStorage.getItem("orderId")),
+    };
+    ApiCustomerService.addpaymentDetails(payment1);
+    addOrderIdtoOrderAddress();
+  };
+
+  const addOrderIdtoOrderAddress = () => {
+    ApiCustomerService.addOrderIdtoOrderAddress(
+      window.localStorage.getItem("address_id"),
+      window.localStorage.getItem("orderId")
+    );
+  };
+
+  const addDetails = () => {
+    addOrder();
+    alert("Payment Done");
+    window.localStorage.removeItem("cart_size");
+    window.localStorage.removeItem("deliveryBoyId");
+    window.localStorage.removeItem("orderId");
+
+    props.history.push("/home");
   };
 
   return (
@@ -133,8 +292,8 @@ const OrderAddressScreen = (props) => {
             </div>
           </div>
           <div className="mb-3">
-            <button className="btn4 btn-success float-end" onClick={addAddress}>
-              Add Address
+            <button className="btn4 btn-success float-end" onClick={payment}>
+              Payment
             </button>
             <br></br>
           </div>
