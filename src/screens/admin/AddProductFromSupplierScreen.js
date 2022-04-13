@@ -41,9 +41,11 @@ const AddProductFromSupplierScreen = (props) => {
   };
 
   return (
-    <div>
-      <Navigation />
-      <div className="container">
+    <div className="com-bgimg1 vh-100">
+      <div className="sticky-top">
+        <Navigation />
+      </div>
+      <div className="container" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
         <table class="table table-striped">
           <thead>
             <tr>
@@ -66,7 +68,7 @@ const AddProductFromSupplierScreen = (props) => {
             ) : (
               products !== null &&
               products.map((product) => (
-                <tr>
+                <tr className="fw-bold" style={{ color: "#E8E3E1FC" }}>
                   <td>{product.id}</td>
                   <td>{product.productName}</td>
                   <td>{product.suppliedCategory.categoryName}</td>
@@ -77,7 +79,7 @@ const AddProductFromSupplierScreen = (props) => {
                   <td>{product.grams}</td>
                   <td>
                     <button
-                      className="btn4 btn-danger"
+                      className="btn4 btn-danger fw-bold"
                       onClick={() => addProductFromSupplier(product)}
                     >
                       Add Product

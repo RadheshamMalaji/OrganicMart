@@ -1,9 +1,9 @@
 import "../../App.css";
 import React, { useState } from "react";
-import Header from "../../components/Header";
 import { Link } from "react-router-dom";
 import Navigation from "../../components/Navigation";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
+import loginimg from "../../components/logo.jpg";
 const LoginScreen = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -61,56 +61,94 @@ const LoginScreen = (props) => {
   };
 
   return (
-    <div>
-      <Navigation />
-      <div className="main">
-        <Header title="Login" />
-        <br />
-        <h5 className="nameColor1">{message}</h5>
-        <form>
-          <form className="mb-3">
-            <label className="form-label">Email</label>
-            <input
-              type="email"
-              className="form-control"
-              placeholder="name@gmail.com"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </form>
-          <div className="mb-3">
-            <label className="form-label">Password</label>
-            <input
-              type="password"
-              className="form-control"
-              placeholder="*****"
-              name="password"
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            ></input>
-          </div>
-          <div className="mb-3">
-            <br />
-            <div className="float-start">
-              <br></br>
-              New User? <Link to="/forget-password">Forget</Link>
+    <div className="login-bg">
+      <div className="sticky-top">
+        <Navigation />
+      </div>
+      <div
+        className=" vh-100 d-flex"
+        style={{ backgroundColor: "rgba(245, 0, 220,0)" }}
+      >
+        <div className="container w-50 m-auto log  ">
+          <div className="row ">
+            <div className="col-lg p-0">
+              <img src={loginimg} className="w-100 log-img" />
             </div>
-            <div className="float-start">
-              <br></br>
-              New User? <Link to="/create-account">Create Account here</Link>
+            <div className="col-lg-6 p-0">
+              <div className="m-auto w-75 pt-5 pb-5 align-self-center ">
+                {/* <h1
+                  className="text-center fw-bold mb-3"
+                  style={{ color: "green" }}
+                >
+                  Organic Mart
+                </h1> */}
+                <h1 className="text-center display-4">Login</h1>
+
+                <form className="row g-3 mt-3">
+                  <div className="col-md-12">
+                    <label for="email" class="form-label fs-5">
+                      Email-ID
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      placeholder="name@gmail.com"
+                      name="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="col-md-12 mt-4">
+                    <label for="password" className="form-label fs-5">
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="***"
+                      name="password"
+                      value={password}
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
+                    ></input>
+                  </div>
+                  <div className="col-md-12 mt-5 text-center">
+                    <h5 className="fs-6">
+                      Forgot Password?
+                      <Link
+                        to="/forget-password"
+                        className="text-decoration-none fs-6"
+                      >
+                        &nbsp; &nbsp;Click Here
+                      </Link>
+                    </h5>
+                    <h5 className="fs-6">
+                      New User?
+                      <Link
+                        to="/create-account"
+                        className="text-decoration-none fs-6"
+                      >
+                        &nbsp; &nbsp;Register Here
+                      </Link>
+                    </h5>
+                  </div>
+
+                  <div class="col-md-12 text-center">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                      <button
+                        className="btn btn-outline-success fw-bold btn-lg float-end"
+                        onClick={authenticateUser}
+                      >
+                        Login
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
-            <button
-              className="btn-hover color-9 float-end"
-              onClick={authenticateUser}
-            >
-              Login
-            </button>
-            <br></br>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );

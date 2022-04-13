@@ -33,7 +33,9 @@ const ProductDetailsScreen = (props) => {
 
   return (
     <div>
-      <Navigation />
+      <div className="sticky-top">
+        <Navigation />
+      </div>
       <div className="container">
         <div className="main">
           <h4>!!! {window.localStorage.getItem("category_name")} !!!</h4>

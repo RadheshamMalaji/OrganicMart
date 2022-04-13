@@ -1,5 +1,4 @@
 import "../../App.css";
-import Header from "../../components/Header";
 import Navigation from "../../components/Navigation";
 import { useEffect, useState } from "react";
 import ApiSupplierService from "../../services/supplier/ApiSupplierService";
@@ -49,13 +48,24 @@ const AddProductScreen = (props) => {
   };
 
   return (
-    <div>
-      <Navigation />
-      <div className="main">
-        <Header title="Add Product" />
+    <div className="com-bgimg1">
+      <div className="sticky-top">
+        <Navigation />
+      </div>
+      <div
+        className="main vh-90"
+        style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+      >
+        <ul class="d-flex justify-content-center">
+          <i class="fa fa-plus-circle fs-1 text-light" aria-hidden="true">
+            Add Product
+          </i>
+        </ul>
         <div className="form">
           <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Product Name</label>
+            <label class="col-sm-2 col-form-label fw-bold text-light">
+              Product Name
+            </label>
             <div class="col-sm-10">
               <input
                 type="text"
@@ -71,7 +81,9 @@ const AddProductScreen = (props) => {
             </div>
           </div>
           <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Product Description</label>
+            <label class="col-sm-2 col-form-label fw-bold text-light">
+              Product Description
+            </label>
             <div class="col-sm-10">
               <input
                 type="text"
@@ -85,7 +97,9 @@ const AddProductScreen = (props) => {
             </div>
           </div>
           <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">MRP</label>
+            <label class="col-sm-2 col-form-label fw-bold text-light">
+              MRP
+            </label>
             <div class="col-sm-10">
               <input
                 type="number"
@@ -99,7 +113,9 @@ const AddProductScreen = (props) => {
             </div>
           </div>
           <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Discount %</label>
+            <label class="col-sm-2 col-form-label fw-bold text-light">
+              Discount %
+            </label>
             <div class="col-sm-10">
               <input
                 type="number"
@@ -114,7 +130,9 @@ const AddProductScreen = (props) => {
           </div>
           {}
           <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Quantity</label>
+            <label class="col-sm-2 col-form-label fw-bold text-light">
+              Quantity
+            </label>
             <div class="col-sm-10">
               <input
                 type="number"
@@ -128,7 +146,9 @@ const AddProductScreen = (props) => {
             </div>
           </div>
           <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Grams</label>
+            <label class="col-sm-2 col-form-label fw-bold text-light">
+              Grams
+            </label>
             <div class="col-sm-10">
               <input
                 type="number"
@@ -142,7 +162,9 @@ const AddProductScreen = (props) => {
             </div>
           </div>
           <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Category name</label>
+            <label class="col-sm-2 col-form-label fw-bold text-light">
+              Category name
+            </label>
             <div class="col-sm-10">
               <input
                 type="text"
@@ -156,13 +178,16 @@ const AddProductScreen = (props) => {
           <div className="mb-3">
             <div className="float-start">
               <button
-                className="btn4 btn-success"
+                className="btn btn-warning fw-bold"
                 onClick={() => backToOrderHistory()}
               >
                 Home
               </button>
             </div>
-            <button className="btn4 btn-success float-end" onClick={addProduct}>
+            <button
+              className="btn btn-success float-end fw-bold"
+              onClick={addProduct}
+            >
               Add Product
             </button>
             <br></br>

@@ -1,7 +1,6 @@
 import Navigation from "../../components/Navigation";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
 import React, { useEffect, useState } from "react";
-import Header from "../../components/Header";
 
 const ChangeAddressScreen = (props) => {
   const [changeAdd, setChangeAdd] = useState([]);
@@ -45,14 +44,22 @@ const ChangeAddressScreen = (props) => {
   };
 
   return (
-    <div>
-      <Navigation />
-      <div className="main">
-        <Header title="Edit Address" />
+    <div className="com-bgimg1 vh-100">
+      <div className="sticky-top">
+        <Navigation />
+      </div>
+      <div className="main" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
+        <ul class="d-flex justify-content-center">
+          <div class="fa fa-pencil-square-o fs-1 text-light" aria-hidden="true">
+            Edit Address
+          </div>
+        </ul>
         <br />
         <div className="form">
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">Flat No</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              Flat No
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -67,7 +74,9 @@ const ChangeAddressScreen = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">Society Name </label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              Society Name{" "}
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -82,7 +91,9 @@ const ChangeAddressScreen = (props) => {
           </div>
 
           <div class="row mb-3">
-            <label className="col-sm-4 col-form-label">Area</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              Area
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -97,7 +108,9 @@ const ChangeAddressScreen = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">City</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              City
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -113,7 +126,9 @@ const ChangeAddressScreen = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">pincode</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              pincode
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -128,7 +143,9 @@ const ChangeAddressScreen = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">state</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              state
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -144,7 +161,7 @@ const ChangeAddressScreen = (props) => {
           </div>
           <div className="mb-3">
             <button
-              className="btn4 btn-success float-end"
+              className="btn4 btn-success float-end fw-bold"
               onClick={editAddress}
             >
               Update Address

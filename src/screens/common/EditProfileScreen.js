@@ -56,14 +56,22 @@ const EditProfileScreen = (props) => {
   };
 
   return (
-    <div>
-      <Navigation />
-      <div className="main">
-        <Header title="Edit Profile" />
+    <div className="com-bgimg1 vh-100">
+      <div className="sticky-top">
+        <Navigation />
+      </div>
+      <div className="main" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
+        <ul class="d-flex justify-content-center">
+          <div class="fa fa-pencil-square-o fs-1 text-light" aria-hidden="true">
+            Edit Profile
+          </div>
+        </ul>
         <br />
         <div className="form">
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">First Name</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              First Name
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -78,7 +86,9 @@ const EditProfileScreen = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">Last Name</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              Last Name
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -93,7 +103,9 @@ const EditProfileScreen = (props) => {
           </div>
 
           <div class="row mb-3">
-            <label className="col-sm-4 col-form-label">Email</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              Email
+            </label>
             <div className="col-sm-8">
               <input
                 type="email"
@@ -109,7 +121,9 @@ const EditProfileScreen = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">Phone</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              Phone
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -123,7 +137,10 @@ const EditProfileScreen = (props) => {
             </div>
           </div>
           <div className="mb-3">
-            <button className="btn4 btn-success float-end" onClick={editUser}>
+            <button
+              className="btn4 btn-success float-end fw-bold"
+              onClick={editUser}
+            >
               Edit Profile
             </button>
             <br></br>

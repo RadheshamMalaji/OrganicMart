@@ -29,10 +29,12 @@ const ShowProductsBySupplierScreen = (props) => {
   };
 
   return (
-    <div>
-      <Navigation />
-      <div className="container">
-        <table class="table table-striped">
+    <div className="com-bgimg1 vh-100">
+      <div className="sticky-top">
+        <Navigation />
+      </div>
+      <div className="container" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
+        <table class="table table-striped text-light">
           <thead>
             <tr>
               <th scope="col" width="10%">
@@ -63,10 +65,10 @@ const ShowProductsBySupplierScreen = (props) => {
             ) : (
               products !== null &&
               products.map((product) => (
-                <tr>
+                <tr className="text-light">
                   <td>{product.id}</td>
                   <td>{product.productName}</td>
-                  <td>{this.state.categoryName}</td>
+                  <td>{categoryName}</td>
                   <td>{product.rating}</td>
                   <td>{product.qty}</td>
                   <td>

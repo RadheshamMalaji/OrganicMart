@@ -1,5 +1,4 @@
 import "../../App.css";
-import Header from "../../components/Header";
 import { Link } from "react-router-dom";
 import Navigation from "../../components/Navigation";
 import { useEffect, useState } from "react";
@@ -28,17 +27,6 @@ const UpdateProductScreen = (props) => {
     ApiSupplierService.fetchProductsById(productId).then((response) => {
       if (response != null) {
         setUpdateProducts(response.data.result);
-        // this.setState({
-        //   id: response.data.result.id,
-        //   productName: response.data.result.productName,
-        //   description: response.data.result.description,
-        //   rating: response.data.result.rating,
-        //   price: response.data.result.price,
-        //   discount: response.data.result.discount,
-        //   finalPrice: response.data.result.finalPrice,
-        //   qty: response.data.result.qty,
-        //   grams: response.data.result.grams,
-        // });
       }
     });
   };
@@ -64,13 +52,21 @@ const UpdateProductScreen = (props) => {
   };
 
   return (
-    <div>
-      <Navigation />
-      <div className="main">
-        <Header title="Update Product" />
+    <div className="com-bgimg1 vh-100">
+      <div className="sticky-top">
+        <Navigation />
+      </div>
+      <div className="main" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
+        <ul class="d-flex justify-content-center">
+          <i class="fa fa-pencil-square fs-1 text-light" aria-hidden="true">
+            Update product
+          </i>
+        </ul>
         <div className="form">
           <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Product Name</label>
+            <label class="col-sm-2 col-form-label fw-bold text-light">
+              Product Name
+            </label>
             <div class="col-sm-10">
               <input
                 type="text"
@@ -86,7 +82,9 @@ const UpdateProductScreen = (props) => {
             </div>
           </div>
           <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Product Description</label>
+            <label class="col-sm-2 col-form-label fw-bold text-light">
+              Product Description
+            </label>
             <div class="col-sm-10">
               <input
                 type="text"
@@ -100,7 +98,9 @@ const UpdateProductScreen = (props) => {
             </div>
           </div>
           <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">MRP</label>
+            <label class="col-sm-2 col-form-label fw-bold text-light">
+              MRP
+            </label>
             <div class="col-sm-10">
               <input
                 type="number"
@@ -114,7 +114,9 @@ const UpdateProductScreen = (props) => {
             </div>
           </div>
           <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Discount %</label>
+            <label class="col-sm-2 col-form-label fw-bold text-light">
+              Discount %
+            </label>
             <div class="col-sm-10">
               <input
                 type="number"
@@ -136,7 +138,9 @@ const UpdateProductScreen = (props) => {
             </div>
 */}
           <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Quantity</label>
+            <label class="col-sm-2 col-form-label fw-bold text-light">
+              Quantity
+            </label>
             <div class="col-sm-10">
               <input
                 type="number"
@@ -150,7 +154,9 @@ const UpdateProductScreen = (props) => {
             </div>
           </div>
           <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Grams</label>
+            <label class="col-sm-2 col-form-label fw-bold text-light">
+              Grams
+            </label>
             <div class="col-sm-10">
               <input
                 type="number"
@@ -165,10 +171,12 @@ const UpdateProductScreen = (props) => {
           </div>
           <div className="mb-3">
             <div className="float-start">
-              <Link to="/supplierhome">Home Page</Link>
+              <Link to="/supplierhome" className="btn btn-warning fw-bold text">
+                Home Page
+              </Link>
             </div>
             <button
-              className="btn4 btn-success float-end"
+              className="btn btn-success float-end fw-bold"
               onClick={updateProduct}
             >
               Update Product

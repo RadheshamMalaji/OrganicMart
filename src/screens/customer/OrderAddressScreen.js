@@ -39,34 +39,9 @@ const OrderAddressScreen = (props) => {
 
   const payment = (e) => {
     e.preventDefault();
-    // let addr = {
-    //   userId: id,
-    //   flatNo: flatNo,
-    //   societyName: societyName,
-    //   area: area,
-    //   city: city,
-    //   pinCode: pinCode,
-    //   state: state,
-    //   orderId: orderid,
-    // };
-    // ApiCustomerService.addOrderAddress(addr).then((res) => {
-    //   let id1 = res.data.result;
-    //   window.localStorage.setItem("address_id", id1);
-    //   // alert("Address added successfully");
-    //   //props.history.push("/cart");
-    // });
 
-    // let size = JSON.parse(window.localStorage.getItem("cart_size"));
-    // if (size === 0) {
-    //   alert(" !!! Cart Is Empty !!!");
-    // }
-    // if (size !== 0) {
-    // window.localStorage.setItem("add", state.pinCode);
-    // if (st && window.localStorage.getItem("addressStatus") === "false") {
-    //   alert(" !!! Enter Valid Address !!!");
-    // }
     !window.localStorage.getItem("status") && props.history.push("/login");
-    // if (window.localStorage.getItem("addressStatus") === "true") {
+
     const res = loadScript;
     if (!res) {
       alert("you are offline !!!");
@@ -196,14 +171,27 @@ const OrderAddressScreen = (props) => {
   };
 
   return (
-    <div>
-      <Navigation />
-      <div className="main">
-        <Header title="Add Address" />
+    <div className=" com-bgimg1 vh-100">
+      <div className="sticky-top">
+        <Navigation />
+      </div>
+      <div className="main" style={{ backgroundColor: "rgba(0,0,0,0.5)" }}>
+        <ul class="d-flex justify-content-center">
+          <i class="fa fa-pencil-square-o fs-1 " aria-hidden="true">
+            &nbsp;
+          </i>
+
+          <Header title="Add Address " class="fs-4 " />
+        </ul>
         <br />
         <div className="form">
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">Flat No</label>
+            <label
+              className="col-sm-4 col-form-label fw-bold"
+              style={{ color: "#E8E3E1FC" }}
+            >
+              Flat No
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -218,7 +206,12 @@ const OrderAddressScreen = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">Society Name </label>
+            <label
+              className="col-sm-4 col-form-label fw-bold"
+              style={{ color: "#E8E3E1FC" }}
+            >
+              Society Name{" "}
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -233,7 +226,12 @@ const OrderAddressScreen = (props) => {
           </div>
 
           <div class="row mb-3">
-            <label className="col-sm-4 col-form-label">Area</label>
+            <label
+              className="col-sm-4 col-form-label fw-bold"
+              style={{ color: "#E8E3E1FC" }}
+            >
+              Area
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -248,7 +246,12 @@ const OrderAddressScreen = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">City</label>
+            <label
+              className="col-sm-4 col-form-label fw-bold"
+              style={{ color: "#E8E3E1FC" }}
+            >
+              City
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -263,7 +266,12 @@ const OrderAddressScreen = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">pincode</label>
+            <label
+              className="col-sm-4 col-form-label fw-bold"
+              style={{ color: "#E8E3E1FC" }}
+            >
+              pincode
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -278,7 +286,12 @@ const OrderAddressScreen = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">state</label>
+            <label
+              className="col-sm-4 col-form-label fw-bold"
+              style={{ color: "#E8E3E1FC" }}
+            >
+              state
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -301,5 +314,110 @@ const OrderAddressScreen = (props) => {
       </div>
     </div>
   );
+  //   <div>
+  //     <Navigation />
+  //     <div className="main">
+  //       <Header title="Add Address" />
+  //       <br />
+  //       <div className="form">
+  //         <div className="row mb-3">
+  //           <label className="col-sm-4 col-form-label">Flat No</label>
+  //           <div className="col-sm-8">
+  //             <input
+  //               type="text"
+  //               className="form-control"
+  //               name="flatNo"
+  //               value={flatNo}
+  //               onChange={(e) => {
+  //                 setFlatNo(e.target.value);
+  //               }}
+  //             />
+  //           </div>
+  //         </div>
+
+  //         <div className="row mb-3">
+  //           <label className="col-sm-4 col-form-label">Society Name </label>
+  //           <div className="col-sm-8">
+  //             <input
+  //               type="text"
+  //               className="form-control"
+  //               name="societyName"
+  //               value={societyName}
+  //               onChange={(e) => {
+  //                 setSocietyName(e.target.value);
+  //               }}
+  //             />
+  //           </div>
+  //         </div>
+
+  //         <div class="row mb-3">
+  //           <label className="col-sm-4 col-form-label">Area</label>
+  //           <div className="col-sm-8">
+  //             <input
+  //               type="text"
+  //               className="form-control"
+  //               name="area"
+  //               value={area}
+  //               onChange={(e) => {
+  //                 setArea(e.target.value);
+  //               }}
+  //             />
+  //           </div>
+  //         </div>
+
+  //         <div className="row mb-3">
+  //           <label className="col-sm-4 col-form-label">City</label>
+  //           <div className="col-sm-8">
+  //             <input
+  //               type="text"
+  //               className="form-control"
+  //               name="city"
+  //               value={city}
+  //               onChange={(e) => {
+  //                 setCity(e.target.value);
+  //               }}
+  //             />
+  //           </div>
+  //         </div>
+
+  //         <div className="row mb-3">
+  //           <label className="col-sm-4 col-form-label">pincode</label>
+  //           <div className="col-sm-8">
+  //             <input
+  //               type="text"
+  //               className="form-control"
+  //               name="pinCode"
+  //               value={pinCode}
+  //               onChange={(e) => {
+  //                 setPinCode(e.target.value);
+  //               }}
+  //             />
+  //           </div>
+  //         </div>
+
+  //         <div className="row mb-3">
+  //           <label className="col-sm-4 col-form-label">state</label>
+  //           <div className="col-sm-8">
+  //             <input
+  //               type="text"
+  //               className="form-control"
+  //               name="state"
+  //               value={state}
+  //               onChange={(e) => {
+  //                 setState(e.target.value);
+  //               }}
+  //             />
+  //           </div>
+  //         </div>
+  //         <div className="mb-3">
+  //           <button className="btn4 btn-success float-end" onClick={payment}>
+  //             Payment
+  //           </button>
+  //           <br></br>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 };
 export default OrderAddressScreen;

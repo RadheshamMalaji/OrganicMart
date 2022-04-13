@@ -15,7 +15,7 @@ import FAQSScreen from "./screens/common/FAQSScreen";
 import PrivacyPolicyScreen from "./screens/common/PrivacyPolicyScreen";
 import ProductCategoryScreen from "./screens/customer/ProductCategoryScreen";
 import CartScreen from "./screens/customer/CartScreen";
-import PaymentScreen from "./screens/customer/PaymentScreen";
+
 import LogoutScreen from "./screens/common/LogoutScreen";
 import ProductDetailsScreen from "./screens/customer/ProductDetailsScreen";
 import ProfileScreen from "./screens/common/ProfileScreen";
@@ -79,7 +79,6 @@ function App() {
                 component={ProductCategoryScreen}
               />
               <Route path="/cart" component={CartScreen} />
-              <Route path="/payment" component={PaymentScreen} />
               <Route path="/logout" component={LogoutScreen} />
               <Route path="/product-details" component={ProductDetailsScreen} />
               <Route path="/myaccount/profile" component={ProfileScreen} />
