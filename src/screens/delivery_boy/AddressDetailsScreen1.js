@@ -6,19 +6,6 @@ import Header from "../../components/Header";
 const AddressDetailsScreen1 = (props) => {
   const [userDetails, setUserDetails] = useState([]);
   const [orderAdd, setOredrAdd] = useState([]);
-  // this.state = {
-  //   flatNo: "",
-  //   societyName: "",
-  //   area: "",
-  //   city: "",
-  //   pinCode: "",
-  //   state: "",
-  //   message: "",
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   phone: "",
-  // };
 
   const backToOrderHistory = () => {
     props.history.push("/deliveredorderfordb");
@@ -29,7 +16,7 @@ const AddressDetailsScreen1 = (props) => {
       window.localStorage.getItem("orderIdForDetails")
     ).then((res) => {
       JSON.stringify(window.localStorage.setItem("u", res.data.result));
-      let user = res.data.result;
+      //let user = res.data.result;
       console.log("Oder ID : ");
       console.log(window.localStorage.getItem("orderIdForDetails"));
       console.log(res.data.result);
@@ -39,7 +26,7 @@ const AddressDetailsScreen1 = (props) => {
     ApiCustomerService.getOrderAddress(
       window.localStorage.getItem("orderIdForDetails") - 1
     ).then((res) => {
-      let address = res.data.result;
+      // let address = res.data.result;
       console.log(res.data.result);
       console.log(window.localStorage.getItem("orderIdForDetails") - 1);
       setOredrAdd(res.data.result);

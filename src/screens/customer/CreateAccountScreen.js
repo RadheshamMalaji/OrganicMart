@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import validator from "validator";
 import axios from "axios";
 
-export default function Registration() {
+export default function CreateAccountScreen() {
   // let navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -14,12 +14,12 @@ export default function Registration() {
   const [phone, setPhone] = useState("");
   const [role, setRole] = useState("CUSTOMER");
   const [validation, setValidation] = useState({
-    nameErr: false,
-    lnameErr: false,
-    emailErr: false,
-    phoneErr: false,
-    passwordErr: false,
-    confirmPasswordErr: false,
+    nameErr: "",
+    lnameErr: "",
+    emailErr: "",
+    phoneErr: "",
+    passwordErr: "",
+    confirmPasswordErr: "",
   });
 
   const takefirstName = (e) => {
@@ -42,25 +42,23 @@ export default function Registration() {
     setConfirmPassword(e.target.value);
   };
 
-  const register = async () => {
+  const register = () => {
+    var regEx = /^[a-zA-Z\s]+$/;
+    var pattern = /^[6-9]\d{9}$/gi;
     if (firstName === "") {
-      document.getElementById("firstname").innerHTML =
-        "* First Name is mandatory";
+      setValidation({ nameErr: "First Name is mandatory" });
       return false;
     }
     if (!isNaN(firstName)) {
-      document.getElementById("firstname").innerHTML =
-        " ** only characters are allowed";
+      setValidation({ nameErr: "only characters are allowed" });
       return false;
     }
     if (lastName === "") {
-      document.getElementById("lastname").innerHTML =
-        "* Last Name is mandatory";
+      setValidation({ lnameErr: " Last Name is mandatory" });
       return false;
     }
     if (!isNaN(lastName)) {
-      document.getElementById("lastname").innerHTML =
-        " ** only characters are allowed";
+      setValidation({ lnameErr: " only characters are allowed" });
       return false;
     }
     if (validator.isEmail(email)) {
@@ -70,20 +68,33 @@ export default function Registration() {
       return false;
     }
     if (phone === "") {
-      document.getElementById("contactno").innerHTML =
-        "* Contact Number  is mandatory";
+      setValidation({ phoneErr: "Please enter Mobile number" });
+      return false;
+    } else if (
+      !pattern.test(phone) ||
+      isNaN(phone) ||
+      userMobile.length <= 9 ||
+      userMobile.length >= 11
+    ) {
+      setValidation({ phoneErr: "Please enter Mobile number" });
       return false;
     }
-    if (isNaN(phone)) {
-      document.getElementById("contactno").innerHTML =
-        " * User must write digits only not characters ";
-      return false;
-    }
-    if (phone.length !== 10) {
-      document.getElementById("contactno").innerHTML =
-        " * Contact number must be 10 digits only ";
-      return false;
-    }
+    // if (phone === "") {
+    //   document.getElementById("contactno").innerHTML =
+    //     "* Contact Number  is mandatory";
+    //   return false;
+    // }
+    // if (isNaN(phone)) {
+    //   document.getElementById("contactno").innerHTML =
+    //     " * User must write digits only not characters ";
+    //   return false;
+    // }
+    // if (phone.length !== 10) {
+
+    //   document.getElementById("contactno").innerHTML =
+    //     " * Contact number must be 10 digits only ";
+    //   return false;
+    // }
     if (
       validator.isStrongPassword(password, {
         minLength: 8,
@@ -98,7 +109,11 @@ export default function Registration() {
       setValidation({ password: "Is Not Strong Password" });
       return false;
     }
-
+    if(password !== confirmPassword)
+    {
+      setValidation({ confirmPasswordErr: "Password Not Match" });
+      return false;
+    }
     let user = {
       firstName: firstName,
       lastName: lastName,
@@ -148,14 +163,11 @@ export default function Registration() {
                               value={firstName}
                               onChange={takefirstName}
                             />
-                            {validation.nameErr ? (
+                          
                               <span className="text-danger">
-                                Enter Valid first name..
+                                {validation.nameErr}
                               </span>
-                            ) : (
-                              ""
-                            )}
-                          </div>
+                          
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fa fa-user fa-lg me-3 fa-fw"></i>
@@ -168,13 +180,9 @@ export default function Registration() {
                               value={lastName}
                               onChange={takelastName}
                             />
-                            {validation.lnameErr ? (
-                              <span className="text-danger">
-                                Enter Valid Last name..
+                           <span className="text-danger">
+                                {validation.lnameErr}
                               </span>
-                            ) : (
-                              ""
-                            )}
                           </div>
                         </div>
 
@@ -190,13 +198,9 @@ export default function Registration() {
                               value={email}
                               onChange={takeemail}
                             />
-                            {validation.emailErr ? (
-                              <span className="text-danger">
-                                Enter Valid email..
+                           <span className="text-danger">
+                                {validation.emailErr}
                               </span>
-                            ) : (
-                              ""
-                            )}
                           </div>
                         </div>
 
@@ -211,13 +215,9 @@ export default function Registration() {
                               value={phone}
                               onChange={takephone}
                             />
-                            {validation.phoneErr ? (
-                              <span className="text-danger">
-                                Enter Valid phone no..
+                            <span className="text-danger">
+                                {validation.phoneErr}
                               </span>
-                            ) : (
-                              ""
-                            )}
                           </div>
                         </div>
 
@@ -233,13 +233,9 @@ export default function Registration() {
                               value={password}
                               onChange={takepassword}
                             />
-                            {validation.passwordErr ? (
-                              <span className="text-danger">
-                                Enter Valid password..
+                            <span className="text-danger">
+                                {validation.passwordErr}
                               </span>
-                            ) : (
-                              ""
-                            )}
                           </div>
                         </div>
 
@@ -255,13 +251,9 @@ export default function Registration() {
                               value={confirmPassword}
                               onChange={takeConfirmPassword}
                             />
-                            {validation.confirmPasswordErr ? (
-                              <span className="text-danger">
-                                Enter Valid password..
+                          <span className="text-danger">
+                                {validation.confirmPasswordErr}
                               </span>
-                            ) : (
-                              ""
-                            )}
                           </div>
                         </div>
 

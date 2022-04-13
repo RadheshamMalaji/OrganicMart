@@ -9,7 +9,7 @@ import { Card } from "react-bootstrap";
 import validator from "validator";
 import axios from "axios";
 
-function CreateAccountScreen() {
+function CreateAccountScreen1() {
   return (
     <div>
       <Navigation></Navigation>
@@ -267,4 +267,4 @@ function RegisterUser() {
     </div>
   );
 }
-export default CreateAccountScreen;
+export default CreateAccountScreen1;

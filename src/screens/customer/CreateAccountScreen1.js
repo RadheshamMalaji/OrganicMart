@@ -5,7 +5,7 @@ import Navigation from "../../components/Navigation";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
 import React, { Component, useState } from "react";
 
-const CreateAccountScreen = (props) => {
+const CreateAccountScreen1 = (props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -134,4 +134,4 @@ const CreateAccountScreen = (props) => {
     </div>
   );
 };
-export default CreateAccountScreen;
+export default CreateAccountScreen1;
