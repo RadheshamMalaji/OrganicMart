@@ -10,11 +10,9 @@ const AddProductScreen = (props) => {
   const [rating, setRating] = useState("");
   const [price, setPrice] = useState("");
   const [discount, setDiscount] = useState("");
-  // const [finalPrice, setFinalPrice] = useState("");
   const [qty, setQty] = useState("");
   const [grams, setGrams] = useState("");
   const [categoryName, setCategoryName] = useState("");
-  // const [id, setId] = useState("");
   useEffect(() => {
     ApiSupplierService.fetchProductCategoryName(
       window.localStorage.getItem("user_id")
@@ -32,7 +30,6 @@ const AddProductScreen = (props) => {
     e.preventDefault();
 
     const product = {
-      // id: ,
       productName: productName,
       description: description,
       rating: rating,

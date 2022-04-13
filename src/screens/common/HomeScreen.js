@@ -29,6 +29,7 @@ const HomeScreen = (props) => {
     ApiCustomerService.fetchAllCategory().then((res) => {
       setCategory(res.data.result);
     });
+    console.log(category);
   };
 
   const reloadProductsList = () => {
@@ -36,6 +37,7 @@ const HomeScreen = (props) => {
       window.localStorage.setItem("msg", res.data.message);
       setProducts(res.data.result);
     });
+    console.log(products);
   };
 
   const selectcategory = (id, name) => {

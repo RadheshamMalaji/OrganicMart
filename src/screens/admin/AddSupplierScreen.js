@@ -138,7 +138,6 @@ const AddSupplierScreen = (props) => {
             >
               Add Address
             </button>
-
             <br></br>
           </div>
         </div>

@@ -11,7 +11,7 @@ class ApiCustomerService {
     return axios.post(USER_API_BASE_URL + "/signup/", user);
   }
 
-  async addSupplier(categoryName, user) {
+  addSupplier(categoryName, user) {
     return axios.put(USER_API_BASE_URL + "/signup/" + categoryName, user);
   }
 

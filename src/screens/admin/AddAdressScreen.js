@@ -19,7 +19,7 @@ const AddAddressScreen = (props) => {
   }, []);
 
   const addAddress = () => {
-    const supplierId = props.match.params.id;
+    const supplierId = id;
     console.log(supplierId);
     let addr = {
       flatNo: flatNo,

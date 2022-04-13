@@ -7,6 +7,8 @@ const ShowProductsBySupplierScreen = (props) => {
   const [categoryName, setCategoryName] = useState("");
 
   useEffect(() => {
+    console.log("HI I Am Show Product");
+    console.log(props.match.params.id);
     ApiSupplierService.fetchProductsBySupplierId(props.match.params.id).then(
       (res) => {
         setProducts(res.data.result);
@@ -54,7 +56,7 @@ const ShowProductsBySupplierScreen = (props) => {
             </tr>
           </thead>
           <tbody>
-            {this.state.products === null ? (
+            {products === null ? (
               <tr align="center">
                 <td colSpan="6">Products Not Available.</td>
               </tr>
