@@ -42,7 +42,7 @@ const PendingOrdersScreen = (props) => {
         <Navigation />
       </div>
       <div className="container" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
-        <h2 className="text-center  fa fa-th-list fs-1 text-light">
+        <h2 className="text-center fa fa-th-list fs-1 text-light">
           Pending Orders History
         </h2>
         <table className="table table-striped text-light">
@@ -76,7 +76,7 @@ const PendingOrdersScreen = (props) => {
                     </td>
                     <td>
                       <button
-                        className="btn btn-success fw-bold "
+                        className="btn btn-success fw-bold mt-0"
                         onClick={() => deliveredOrder(order.id)}
                       >
                         Delivered
@@ -85,7 +85,7 @@ const PendingOrdersScreen = (props) => {
                     <td>{order.deliveryDate}</td>
                     <td>
                       <button
-                        className="btn btn-primary fw-bold"
+                        className="btn btn-primary fw-bold mt-0"
                         onClick={() => addressDetails(order.id)}
                       >
                         Address
@@ -93,7 +93,7 @@ const PendingOrdersScreen = (props) => {
                     </td>
                     <td>
                       <button
-                        className="btn btn-warning fw-bold"
+                        className="btn btn-warning fw-bold mt-0"
                         onClick={() => orderDetails(order.id)}
                       >
                         Details

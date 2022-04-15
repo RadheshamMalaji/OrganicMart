@@ -6,7 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import HomeScreen from "./screens/common/HomeScreen";
-import CreateAccountScreen from "./screens/customer/CreateAccountScreen2";
+import CreateAccountScreen from "./screens/customer/CreateAccountScreen";
 import LoginScreen from "./screens/common/LoginScreen";
 import AboutUsScreen from "./screens/common/AboutUsScreen";
 import ContactUsScreen from "./screens/common/ContactUsScreen";
@@ -15,7 +15,6 @@ import FAQSScreen from "./screens/common/FAQSScreen";
 import PrivacyPolicyScreen from "./screens/common/PrivacyPolicyScreen";
 import ProductCategoryScreen from "./screens/customer/ProductCategoryScreen";
 import CartScreen from "./screens/customer/CartScreen";
-
 import LogoutScreen from "./screens/common/LogoutScreen";
 import ProductDetailsScreen from "./screens/customer/ProductDetailsScreen";
 import ProfileScreen from "./screens/common/ProfileScreen";

@@ -86,6 +86,19 @@ const LoginScreen = (props) => {
 
                 <form className="row g-3 mt-3">
                   <div className="col-md-12">
+                    <div class="form-floating mb-3">
+                      <input
+                        type="email"
+                        className="form-control"
+                        id="floatingInput"
+                        placeholder="name@example.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                      <label for="floatingInput">Email address</label>
+                    </div>
+                  </div>
+                  {/* <div className="col-md-12">
                     <label for="email" class="form-label fs-5">
                       Email-ID
                     </label>
@@ -97,21 +110,22 @@ const LoginScreen = (props) => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
-                  </div>
+                  </div> */}
+
                   <div className="col-md-12 mt-4">
-                    <label for="password" className="form-label fs-5">
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="***"
-                      name="password"
-                      value={password}
-                      onChange={(e) => {
-                        setPassword(e.target.value);
-                      }}
-                    ></input>
+                    <div class="form-floating">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="floatingPassword"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => {
+                          setPassword(e.target.value);
+                        }}
+                      />
+                      <label for="floatingPassword">Password</label>
+                    </div>
                   </div>
                   <div className="col-md-12 mt-5 text-center">
                     <h5 className="fs-6">

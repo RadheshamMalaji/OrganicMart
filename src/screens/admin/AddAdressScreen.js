@@ -1,10 +1,8 @@
 import Navigation from "../../components/Navigation";
-//import ApiCustomerService from "../../services/customer/ApiCustomerService";
 import React, { useEffect, useState } from "react";
-import Header from "../../components/Header";
 import ApiSupplierService from "../../services/supplier/ApiSupplierService";
 import "../../App.css";
-
+import Swal from "sweetalert2";
 const AddAddressScreen = (props) => {
   const [flatNo, setflatNo] = useState("");
   const [societyName, setsocietyName] = useState("");
@@ -12,7 +10,6 @@ const AddAddressScreen = (props) => {
   const [city, setcity] = useState("");
   const [pinCode, setpinCode] = useState("");
   const [state, setstate] = useState("");
-  const [message, setmessage] = useState("");
   const [id, setid] = useState("");
 
   useEffect(() => {
@@ -20,7 +17,7 @@ const AddAddressScreen = (props) => {
   }, []);
 
   const addAddress = () => {
-    const supplierId = id;
+    const supplierId = props.match.params.id;
     console.log(supplierId);
     let addr = {
       flatNo: flatNo,
@@ -32,7 +29,8 @@ const AddAddressScreen = (props) => {
     };
     ApiSupplierService.addAddress(supplierId, addr).then((res) => {
       let message = res.data.result;
-      alert("Supplier Registered Successfully");
+      Swal.fire("Supplier Registered Successfully", "", "success");
+      //alert("Supplier Registered Successfully");
       props.history.push("/adminhome");
     });
   };

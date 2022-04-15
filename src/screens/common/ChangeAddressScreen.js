@@ -1,6 +1,7 @@
 import Navigation from "../../components/Navigation";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const ChangeAddressScreen = (props) => {
   const [changeAdd, setChangeAdd] = useState([]);
@@ -35,7 +36,8 @@ const ChangeAddressScreen = (props) => {
     };
     ApiCustomerService.editUserAddress(id, addr).then((res) => {
       let message = res.data.result;
-      alert("Address Update successfully");
+      Swal.fire("Address Update successfully", "", "success");
+      // alert("Address Update successfully");
       window.localStorage.getItem("user_role") === "CUSTOMER" &&
         props.history.push("/home");
       window.localStorage.getItem("user_role") === "SUPPLIER" &&
@@ -120,7 +122,6 @@ const ChangeAddressScreen = (props) => {
                 onChange={(e) => {
                   setCity(e.target.value);
                 }}
-                readOnly
               />
             </div>
           </div>
@@ -155,7 +156,6 @@ const ChangeAddressScreen = (props) => {
                 onChange={(e) => {
                   setState(e.target.value);
                 }}
-                readOnly
               />
             </div>
           </div>

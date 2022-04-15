@@ -37,6 +37,7 @@ const AddProductScreen = (props) => {
       finalPrice: price - (discount * price) / 100,
       qty: qty,
       grams: grams,
+      suppliedid: window.localStorage.getItem("user_id"),
     };
 
     ApiSupplierService.addProductBySupplier(categoryName, product).then(

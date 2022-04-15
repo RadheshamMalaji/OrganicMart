@@ -83,7 +83,7 @@ const SupplierListScreen = (props) => {
         </table>
         <div className="d-flex justify-content-end pb-3">
           <button
-            className=" btn4 btn-success fw-bold"
+            className=" btn btn-warning fw-bold"
             onClick={() => addSupplier()}
           >
             Add Supplier

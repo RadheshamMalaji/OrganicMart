@@ -44,7 +44,7 @@ const OrderAddressScreen = (props) => {
 
     const res = loadScript;
     if (!res) {
-      alert("you are offline !!!");
+      Swal.fire("you are offline !!!", "Check Your Network !!", "error");
     }
 
     axios
@@ -63,8 +63,6 @@ const OrderAddressScreen = (props) => {
           description: "Test Transaction",
           order_id: resp.data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
           handler: function (response) {
-            // setPayment({...payment, cardno:response.razorpay_payment_id})
-            // handleSubmit();
             console.log(response.razorpay_payment_id);
             console.log(response.razorpay_order_id);
             console.log(response.razorpay_signature);
@@ -72,7 +70,6 @@ const OrderAddressScreen = (props) => {
             window.localStorage.setItem("order_id", response.razorpay_order_id);
 
             console.log("Payment successful !!");
-            //alert("congrates!! Payment successful !!");
             addDetails();
 
             let addr = {
@@ -89,14 +86,19 @@ const OrderAddressScreen = (props) => {
             ApiCustomerService.addOrderAddress(addr).then((res) => {
               let id1 = res.data.result;
               window.localStorage.setItem("address_id", id1);
-              // alert("Address added successfully");
-              //props.history.push("/cart");
             });
-            Swal.fire(
-              "Good job!",
-              "Congrates!! Payment successful !!",
-              "success"
-            );
+
+            axios
+              .get(
+                `http://localhost:8080/customers/paymentemail/${window.localStorage.getItem(
+                  "user_email"
+                )}/${window.localStorage.getItem("total_price")}`
+              )
+              .then((Response) => {})
+              .catch((error) => {
+                console.log("Something went wrong", error);
+              });
+
             props.history.push("/home");
           },
           prefill: {
@@ -118,7 +120,6 @@ const OrderAddressScreen = (props) => {
         console.log("helloo");
         console.log(error);
       });
-    // }
   };
 
   const addOrder = () => {
@@ -162,7 +163,8 @@ const OrderAddressScreen = (props) => {
 
   const addDetails = () => {
     addOrder();
-    alert("Payment Done");
+    Swal.fire("Good job!", "Congrates!! Payment successful !!", "success");
+    //alert("Payment Done");
     window.localStorage.removeItem("cart_size");
     window.localStorage.removeItem("deliveryBoyId");
     window.localStorage.removeItem("orderId");

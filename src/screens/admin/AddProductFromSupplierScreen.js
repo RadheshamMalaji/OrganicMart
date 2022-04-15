@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import Navigation from "../../components/Navigation";
 import ApiSupplierService from "../../services/supplier/ApiSupplierService";
+import Swal from "sweetalert2";
 
 const AddProductFromSupplierScreen = (props) => {
   const [products, setProducts] = useState([]);
   const [categoryName, setCategoryName] = useState("");
   useEffect(() => {
     const supplierId = props.match.params.id;
-
+    console.log(supplierId);
     ApiSupplierService.fetchSuppliedProducts(supplierId).then((res) => {
       setProducts(res.data.result);
     });
@@ -31,11 +32,13 @@ const AddProductFromSupplierScreen = (props) => {
     };
 
     ApiSupplierService.addProduct(categoryName, product).then((res) => {
-      alert("Product Added successfully");
+      Swal.fire("Product Added successfully", "", "success");
+      //alert("Product Added successfully");
     });
 
     ApiSupplierService.deleteFromSuppliedProducts(p.id).then((res) => {
-      alert("Product Added successfully");
+      // Swal.fire("Product Added successfully", "", "success");
+      // alert("Product Added successfully");
       window.location.reload();
     });
   };
@@ -46,7 +49,7 @@ const AddProductFromSupplierScreen = (props) => {
         <Navigation />
       </div>
       <div className="container" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
-        <table class="table table-striped">
+        <table class="table table-striped text-light">
           <thead>
             <tr>
               <th scope="col">Product id</th>
@@ -79,7 +82,7 @@ const AddProductFromSupplierScreen = (props) => {
                   <td>{product.grams}</td>
                   <td>
                     <button
-                      className="btn4 btn-danger fw-bold"
+                      className="btn btn-success fw-bold"
                       onClick={() => addProductFromSupplier(product)}
                     >
                       Add Product

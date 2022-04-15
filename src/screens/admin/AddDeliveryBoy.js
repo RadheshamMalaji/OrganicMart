@@ -2,6 +2,7 @@ import "../../App.css";
 import Navigation from "../../components/Navigation";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 const AddDeliveryBoyScreen = (props) => {
   const [firstName, setFirstName] = useState("");
@@ -27,7 +28,8 @@ const AddDeliveryBoyScreen = (props) => {
         alert("Email Addreess Already Registered");
       }
       if (res.data.result !== null) {
-        alert("DELIVERY_BOY Add successfully");
+        Swal.fire("DELIVERY_BOY Add successfully", "", "success");
+        //alert("DELIVERY_BOY Add successfully");
         setMessage("DELIVERY_BOY Add successfully.");
         props.history.push("/showdeliveryboy");
       }

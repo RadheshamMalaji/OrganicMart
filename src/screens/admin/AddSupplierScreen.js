@@ -2,6 +2,8 @@ import "../../App.css";
 import Navigation from "../../components/Navigation";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
 import React, { useState } from "react";
+import Swal from "sweetalert2";
+
 const AddSupplierScreen = (props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -24,9 +26,11 @@ const AddSupplierScreen = (props) => {
     };
     ApiCustomerService.addSupplier(categoryName, user).then((res) => {
       if (res.data.result === null) {
-        alert("Email Addreess Already Registered");
+        Swal.fire("Email Addreess Already Registered", "", "error");
+        // alert("Email Addreess Already Registered");
       }
       if (res.data.result !== null) {
+        Swal.fire("Supplier Add successfully", "", "success");
         setMessage("Supplier Add successfully.");
         props.history.push("/addaddress/" + res.data.result);
       }
@@ -140,15 +144,30 @@ const AddSupplierScreen = (props) => {
               Category Name
             </label>
             <div className="col-sm-8">
-              <input
-                type="text"
-                className="form-control"
-                name="categoryName"
-                value={categoryName}
-                onChange={(e) => {
-                  setCategoryName(e.target.value);
-                }}
-              />
+              <div>
+                {/* <label htmlFor="role" className="formFieldLabel"></label> */}
+                <select
+                  id="category"
+                  name="category"
+                  placeholder="Choose a Category"
+                  className="form-control form-control-md mb-2"
+                  value={categoryName}
+                  onChange={(e) => {
+                    setCategoryName(e.target.value);
+                  }}
+                  required
+                >
+                  <option value="" disabled>
+                    Select your Category
+                  </option>
+
+                  <option value="Fruits">Fruits</option>
+                  <option value="Cerealsandpulses">Cereals and Pulses</option>
+                  <option value="DryFruits">DryFruits</option>
+                  <option value="Vegetable">Vegetable</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
             </div>
           </div>
 

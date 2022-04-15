@@ -1,7 +1,6 @@
 import Navigation from "../../components/Navigation";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
 import React, { useEffect, useState } from "react";
-import Header from "../../components/Header";
 
 const AddressDetailsScreen1 = (props) => {
   const [userDetails, setUserDetails] = useState([]);
@@ -19,16 +18,18 @@ const AddressDetailsScreen1 = (props) => {
       //let user = res.data.result;
       console.log("Oder ID : ");
       console.log(window.localStorage.getItem("orderIdForDetails"));
+      console.log("getUserDetails");
       console.log(res.data.result);
       setUserDetails(res.data.result);
     });
 
     ApiCustomerService.getOrderAddress(
-      window.localStorage.getItem("orderIdForDetails") - 1
+      window.localStorage.getItem("orderIdForDetails")
     ).then((res) => {
       // let address = res.data.result;
+      console.log("getOrderAddress");
       console.log(res.data.result);
-      console.log(window.localStorage.getItem("orderIdForDetails") - 1);
+      console.log(window.localStorage.getItem("orderIdForDetails"));
       setOredrAdd(res.data.result);
     });
   }, []);
