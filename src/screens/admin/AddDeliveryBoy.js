@@ -1,8 +1,8 @@
 import "../../App.css";
-import Header from "../../components/Header";
 import Navigation from "../../components/Navigation";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 const AddDeliveryBoyScreen = (props) => {
   const [firstName, setFirstName] = useState("");
@@ -28,7 +28,8 @@ const AddDeliveryBoyScreen = (props) => {
         alert("Email Addreess Already Registered");
       }
       if (res.data.result !== null) {
-        alert("DELIVERY_BOY Add successfully");
+        Swal.fire("DELIVERY_BOY Add successfully", "", "success");
+        //alert("DELIVERY_BOY Add successfully");
         setMessage("DELIVERY_BOY Add successfully.");
         props.history.push("/showdeliveryboy");
       }
@@ -36,14 +37,28 @@ const AddDeliveryBoyScreen = (props) => {
   };
 
   return (
-    <div>
-      <Navigation />
-      <div className="main">
-        <Header title="Add Delivery Boy Account" />
+    <div className="com-bgimg1 vh-100">
+      <div className="sticky-top">
+        <Navigation />
+      </div>
+      <div className="main" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
+        <ul class="d-flex justify-content-center">
+          {/* <i className="fa fa-plus-square fs-1 " aria-hidden="true">
+            &nbsp;
+          </i> */}
+          <div
+            title="Add Delivery Boy Account "
+            className="fs-1 fw-bold text-light"
+          >
+            Add Delivery Boy
+          </div>
+        </ul>
         <br />
         <div className="form">
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">First Name</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              First Name
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -58,7 +73,9 @@ const AddDeliveryBoyScreen = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">Last Name</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              Last Name
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -73,7 +90,9 @@ const AddDeliveryBoyScreen = (props) => {
           </div>
 
           <div class="row mb-3">
-            <label className="col-sm-4 col-form-label">Email</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              Email
+            </label>
             <div className="col-sm-8">
               <input
                 type="email"
@@ -88,7 +107,9 @@ const AddDeliveryBoyScreen = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">Password</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              Password
+            </label>
             <div className="col-sm-8">
               <input
                 type="password"
@@ -103,7 +124,9 @@ const AddDeliveryBoyScreen = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">Phone</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              Phone
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -117,9 +140,9 @@ const AddDeliveryBoyScreen = (props) => {
             </div>
           </div>
 
-          <div className="mb-3">
+          <div className="mb-3 d-flex justify-content-end">
             <button
-              className="btn4 btn-success float-start"
+              className="btn4 btn-success float-start fw-bold"
               onClick={registerUser}
             >
               Add Delivery Boy

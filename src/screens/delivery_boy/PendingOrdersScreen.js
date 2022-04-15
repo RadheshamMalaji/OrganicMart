@@ -37,11 +37,15 @@ const PendingOrdersScreen = (props) => {
   };
 
   return (
-    <div>
-      <Navigation />
-      <div className="container">
-        <h2 className="text-center">Pending Orders History</h2>
-        <table className="table table-striped">
+    <div className="com-bgimg1 vh-100">
+      <div className="sticky-top">
+        <Navigation />
+      </div>
+      <div className="container" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
+        <h2 className="text-center fa fa-th-list fs-1 text-light">
+          Pending Orders History
+        </h2>
+        <table className="table table-striped text-light">
           <thead>
             <tr>
               <th>Orders Amount</th>
@@ -64,7 +68,7 @@ const PendingOrdersScreen = (props) => {
             {orders.map(
               (order) =>
                 order.orderDeliveryStatus === "PENDING" && (
-                  <tr key={order.id}>
+                  <tr key={order.id} className=" fw-bold text-light">
                     <td>{order.totalPrice}</td>
                     <td>{order.orderDate}</td>
                     <td className="nameColor1">
@@ -72,7 +76,7 @@ const PendingOrdersScreen = (props) => {
                     </td>
                     <td>
                       <button
-                        className="btn4 btn-danger"
+                        className="btn btn-success fw-bold mt-0"
                         onClick={() => deliveredOrder(order.id)}
                       >
                         Delivered
@@ -81,7 +85,7 @@ const PendingOrdersScreen = (props) => {
                     <td>{order.deliveryDate}</td>
                     <td>
                       <button
-                        className="btn4 btn-success"
+                        className="btn btn-primary fw-bold mt-0"
                         onClick={() => addressDetails(order.id)}
                       >
                         Address
@@ -89,7 +93,7 @@ const PendingOrdersScreen = (props) => {
                     </td>
                     <td>
                       <button
-                        className="btn4 btn-success"
+                        className="btn btn-warning fw-bold mt-0"
                         onClick={() => orderDetails(order.id)}
                       >
                         Details

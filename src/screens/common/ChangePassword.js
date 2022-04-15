@@ -1,8 +1,7 @@
 import Navigation from "../../components/Navigation";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
 import React, { useEffect, useState } from "react";
-import Header from "../../components/Header";
-
+import Swal from "sweetalert2";
 const ChangePasswordScreen = (props) => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +13,8 @@ const ChangePasswordScreen = (props) => {
   const changePassword = (e) => {
     e.preventDefault();
     ApiCustomerService.editUserPassword(id, password).then((res) => {
-      alert("Password Changed successfully");
+      Swal.fire("Password Changed successfully", "", "success");
+      //alert("Password Changed successfully");
       window.localStorage.getItem("user_role") === "CUSTOMER" &&
         props.history.push("/home");
       window.localStorage.getItem("user_role") === "SUPPLIER" &&
@@ -27,14 +27,20 @@ const ChangePasswordScreen = (props) => {
   };
 
   return (
-    <div>
-      <Navigation />
-      <div className="main">
-        <Header title="Change Password" />
+    <div className="com-bgimg1 vh-100">
+      <div className="sticky-top">
+        <Navigation />
+      </div>
+      <div className="main" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
+        <ul class="d-flex justify-content-center">
+          <div class="fa fa-unlock fs-1 text-light" aria-hidden="true">
+            ChangePassword
+          </div>
+        </ul>
         <br />
         <div className="form">
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">
+            <label className="col-sm-4 col-form-label fw-bold text-light">
               Enter New Password
             </label>
             <div className="col-sm-8">
@@ -51,7 +57,7 @@ const ChangePasswordScreen = (props) => {
           </div>
           <div className="mb-3">
             <button
-              className="btn4 btn-success float-end"
+              className="btn btn-success float-end fw-bold"
               onClick={changePassword}
             >
               Change Password

@@ -22,10 +22,14 @@ const AdminOrderDetailsForPendingScreen = (props) => {
   };
 
   return (
-    <div>
-      <Navigation />
-      <div className="container">
-        <h2 className="text-center">Orders Details</h2>
+    <div className="com-bgimg1 vh-100">
+      <div className="sticky-top">
+        <Navigation />
+      </div>
+      <div className="container" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
+        <h2 className="text-center fa fa-info-circle fs-1 text-light">
+          Orders Details
+        </h2>
         <table className="table table-striped">
           <thead>
             <tr>
@@ -37,7 +41,7 @@ const AdminOrderDetailsForPendingScreen = (props) => {
           </thead>
           <tbody>
             {orderDetails.map((order) => (
-              <tr>
+              <tr className="fw-bold" style={{ color: "#E8E3E1FC" }}>
                 <td>{order.productName}</td>
                 <td>{order.qty}</td>
                 <td>{order.grams}</td>
@@ -45,15 +49,15 @@ const AdminOrderDetailsForPendingScreen = (props) => {
               </tr>
             ))}
           </tbody>
-          <td>
-            <button
-              className="btn4 btn-success"
-              onClick={() => backToOrderHistory()}
-            >
-              Back
-            </button>
-          </td>
         </table>
+        <div className="d-flex justify-content-end m-3 pb-3">
+          <button
+            className="btn4 btn-success fw-bold"
+            onClick={() => backToOrderHistory()}
+          >
+            Back
+          </button>
+        </div>
       </div>
     </div>
   );

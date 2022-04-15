@@ -168,3 +168,24 @@ ul li a {
    background-color:red;
    border-radius: 50%;
  }
+
+ .com-bgimg1{
+   background-image: url("https://miro.medium.com/max/1400/1*7JYLC4Pwh_NOX96R8NsErg.png");
+   background-size: cover;
+   
+ }
+
+ .login-bg{
+   background-image: url("https://thumbs.dreamstime.com/b/frame-organic-food-fresh-raw-vegetables-black-beans-chalkboard-79572055.jpg");
+   background-size: cover;
+ }
+
+ .log {
+ 
+   background-color: #f8f9facf;
+ }
+ .log-img {
+   
+   height: 100%;
+   width: 100%;
+ }

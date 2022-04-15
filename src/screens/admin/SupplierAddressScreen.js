@@ -18,14 +18,31 @@ const SupplierAddress = (props) => {
   }, []);
 
   return (
-    <div>
-      <Navigation />
-      <div className="main">
-        <Header title="Delivery Address" />
+    <div className="com-bgimg1 vh-100">
+      <div className="sticky-top">
+        <Navigation />
+      </div>
+      <div className="main" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
+        <ul class="d-flex justify-content-center">
+          {/* <i class="fa fa-map-marker fs-1 " aria-hidden="true">
+            &nbsp;
+          </i> */}
+
+          <div
+            className="fa fa-map-marker fs-1 text-light"
+            title="Delivery Address "
+            class="fs-4 "
+          ></div>
+        </ul>
         <br />
         <div className="form">
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">Flat No</label>
+            <label
+              className="col-sm-4 col-form-label fw-bold"
+              style={{ color: "#E8E3E1FC" }}
+            >
+              Flat No
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -38,7 +55,12 @@ const SupplierAddress = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">Society Name </label>
+            <label
+              className="col-sm-4 col-form-label fw-bold"
+              style={{ color: "#E8E3E1FC" }}
+            >
+              Society Name{" "}
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -51,7 +73,12 @@ const SupplierAddress = (props) => {
           </div>
 
           <div class="row mb-3">
-            <label className="col-sm-4 col-form-label">Area</label>
+            <label
+              className="col-sm-4 col-form-label fw-bold"
+              style={{ color: "#E8E3E1FC" }}
+            >
+              Area
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -64,7 +91,9 @@ const SupplierAddress = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">City</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              City
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -77,7 +106,9 @@ const SupplierAddress = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">pincode</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              pincode
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -90,7 +121,9 @@ const SupplierAddress = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label">state</label>
+            <label className="col-sm-4 col-form-label fw-bold text-light">
+              state
+            </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -102,7 +135,10 @@ const SupplierAddress = (props) => {
             </div>
           </div>
           <div className="mb-3">
-            <Link to="/showsupplier" className="btn btn-success float-end">
+            <Link
+              to="/showsupplier"
+              className="btn btn-success float-end fw-bold "
+            >
               Supplier List
             </Link>
             <br></br>

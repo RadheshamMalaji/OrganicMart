@@ -22,13 +22,17 @@ const OrderDetailsPageScreen = (props) => {
   };
 
   return (
-    <div>
-      <Navigation />
-      <div className="container">
-        <h2 className="text-center">Orders Details</h2>
-        <table className="table table-striped">
+    <div className="com-bgimg1 vh-100">
+      <div className="sticky-top">
+        <Navigation />
+      </div>
+      <div className="container" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
+        <h2 className="text-center fa fa-info-circle fs-1 text-light ">
+          Orders Details
+        </h2>
+        <table className="table table-striped text-light">
           <thead>
-            <tr>
+            <tr className="text-light">
               <th>Product Name</th>
               <th>QTY</th>
               <th>Grams</th>
@@ -37,7 +41,7 @@ const OrderDetailsPageScreen = (props) => {
           </thead>
           <tbody>
             {orderDetails.map((order) => (
-              <tr>
+              <tr className="fw-bold text-light">
                 <td>{order.productName}</td>
                 <td>{order.qty}</td>
                 <td>{order.grams}</td>
@@ -47,7 +51,7 @@ const OrderDetailsPageScreen = (props) => {
           </tbody>
           <td>
             <button
-              className="btn4 btn-success"
+              className="btn4 btn-success fw-bold"
               onClick={() => backToOrderHistory()}
             >
               Back
