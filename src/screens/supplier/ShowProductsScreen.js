@@ -30,12 +30,10 @@ const ShowProductsScreen = (props) => {
   };
 
   return (
-    <div className="com-bgimg1 vh-100">
-      <div className="sticky-top">
-        <Navigation />
-      </div>
-      <div className="container" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
-        <table class="table table-striped text-light">
+    <div>
+      <Navigation />
+      <div className="container">
+        <table class="table table-striped">
           <thead>
             <tr>
               <th scope="col" width="10%">
@@ -47,10 +45,10 @@ const ShowProductsScreen = (props) => {
               <th scope="col" width="20%">
                 Category
               </th>
-              <th scope="col" width="9%">
+              <th scope="col" width="10%">
                 Rating
               </th>
-              <th scope="col" width="8%">
+              <th scope="col" width="10%">
                 Update Product
               </th>
               <th scope="col" width="9%">
@@ -66,30 +64,22 @@ const ShowProductsScreen = (props) => {
             ) : (
               products !== null &&
               products.map((product) => (
-                <tr className="fw-bold text-light">
+                <tr>
                   <td>{product.id}</td>
                   <td>{product.productName}</td>
                   <td>{categoryName}</td>
                   <td>{product.rating}</td>
                   <td>
                     <Link
-                      className="btn btn-success m-0"
                       to={"/supplier/updateproduct/" + product.id}
-                      style={{
-                        color: "white",
-                        padding: "3.5px",
-                      }}
+                      className="btn4 btn-success"
                     >
                       Update Product
                     </Link>
                   </td>
                   <td>
                     <button
-                      className="btn btn-danger m-0"
-                      style={{
-                        color: "white",
-                        padding: "3.5px",
-                      }}
+                      className="btn4 btn-danger"
                       onClick={() => deleteProduct(product.id)}
                     >
                       Delete Product

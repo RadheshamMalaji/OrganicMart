@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "./logo.jpg";
-import React, { useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import ApiCustomerService from "../services/customer/ApiCustomerService";
 
 const Navigation = (props) => {

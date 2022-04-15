@@ -65,10 +65,7 @@ const CartScreen = (props) => {
   return (
     <div className=" com-bgimg1 vh-100">
       <Navigation />
-      <div
-        className="container pb-4"
-        style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
-      >
+      <div className="container" style={{ backgroundColor: "rgba(0,0,0,0.5)" }}>
         <h2 className="text-center fa fa-cart-arrow-down fs-1">Cart Details</h2>
         {cart.length === 0 && (
           <div className="container">
@@ -91,7 +88,11 @@ const CartScreen = (props) => {
             </thead>
             <tbody>
               {cart.map((product) => (
-                <tr key={product.id} className="fw-bold text-light">
+                <tr
+                  key={product.id}
+                  className="fw-bold"
+                  style={{ color: "#E8E3E1FC" }}
+                >
                   <td>{product.productName}</td>
                   <td>{product.finalPrice}</td>
                   <td>{product.qty}</td>
@@ -111,22 +112,21 @@ const CartScreen = (props) => {
         )}
         <br />
 
-        <div className="float-end text-light">
+        <div className="float-end">
           <h5>Total Price : {tamt}</h5>
           <h5>Savings Amount : {samt}</h5>
-          <div className="d-flex justify-content-end ">
-            <button
-              className="btn btn-success fw-bold"
-              style={{ width: "200px" }}
-              onClick={placeOrder}
-            >
-              Place Order
-            </button>
-          </div>
           <br />
           <br />
-          <br />
+          <button
+            className="btn4 btn-primary"
+            style={{ width: "200px" }}
+            onClick={placeOrder}
+          >
+            Place Order
+          </button>
         </div>
+        <br />
+        <br />
         <br />
         <br />
         <br />

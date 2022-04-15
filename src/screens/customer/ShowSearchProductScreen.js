@@ -46,9 +46,7 @@ const ShowSearchProductScreen = (props) => {
 
   return (
     <div>
-      <div className="sticky-top">
-        <Navigation />
-      </div>
+      <Navigation />
       <div className="container">
         <div className="container">
           <div className="container">
@@ -86,7 +84,7 @@ const ShowSearchProductScreen = (props) => {
                     onClick={() => {
                       addProductToCart(product);
                     }}
-                    className="btn btn-sm btn-success btn-add-to-cart"
+                    className="btn4 btn-sm btn-success btn-add-to-cart"
                   >
                     Add To Cart
                   </button>

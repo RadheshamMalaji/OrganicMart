@@ -1,5 +1,6 @@
 import Navigation from "../../components/Navigation";
 import React, { useEffect, useState } from "react";
+import Header from "../../components/Header";
 const ProfileScreen = (props) => {
   const [state, setState] = useState({
     id: "",
@@ -21,22 +22,14 @@ const ProfileScreen = (props) => {
   }, []);
 
   return (
-    <div className="com-bgimg1 vh-100">
-      <div className="sticky-top">
-        <Navigation />
-      </div>
-      <div className="main " style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
-        <ul class="d-flex justify-content-center">
-          <i class="fa fa-user-circle fs-1 text-light" aria-hidden="true">
-            User Details
-          </i>
-        </ul>
+    <div>
+      <Navigation />
+      <div className="main">
+        <Header title="!!! User Details !!!" />
         <br />
         <div className="form">
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label fw-bold text-light">
-              First Name
-            </label>
+            <label className="col-sm-4 col-form-label">First Name</label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -49,9 +42,7 @@ const ProfileScreen = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label fw-bold text-light">
-              Last Name
-            </label>
+            <label className="col-sm-4 col-form-label">Last Name</label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -64,9 +55,7 @@ const ProfileScreen = (props) => {
           </div>
 
           <div class="row mb-3">
-            <label className="col-sm-4 col-form-label fw-bold text-light">
-              Email
-            </label>
+            <label className="col-sm-4 col-form-label">Email</label>
             <div className="col-sm-8">
               <input
                 type="email"
@@ -79,9 +68,7 @@ const ProfileScreen = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label fw-bold text-light">
-              Phone
-            </label>
+            <label className="col-sm-4 col-form-label">Phone</label>
             <div className="col-sm-8">
               <input
                 type="text"

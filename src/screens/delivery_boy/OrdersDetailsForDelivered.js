@@ -22,15 +22,11 @@ const OrdersDetailsForDeliveredScreen = (props) => {
   };
 
   return (
-    <div className="com-bgimg1 vh-100">
-      <div className="sticky-top">
-        <Navigation />
-      </div>
-      <div className="container" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
-        <h2 className="text-center fa fa-th-list fs-1 text-light">
-          Orders Details
-        </h2>
-        <table className="table table-striped text-light">
+    <div>
+      <Navigation />
+      <div className="container">
+        <h2 className="text-center">Orders Details</h2>
+        <table className="table table-striped">
           <thead>
             <tr>
               <th>Product Name</th>
@@ -41,7 +37,7 @@ const OrdersDetailsForDeliveredScreen = (props) => {
           </thead>
           <tbody>
             {orderDetails.map((order) => (
-              <tr className=" fw-bold text-light">
+              <tr>
                 <td>{order.productName}</td>
                 <td>{order.qty}</td>
                 <td>{order.grams}</td>
@@ -49,15 +45,15 @@ const OrdersDetailsForDeliveredScreen = (props) => {
               </tr>
             ))}
           </tbody>
+          <td>
+            <button
+              className="btn4 btn-success"
+              onClick={() => backToOrderHistory()}
+            >
+              Back
+            </button>
+          </td>
         </table>
-        <div className="d-flex justify-content-end pb-3 fw-bold">
-          <button
-            className="btn btn-success  fw-bold"
-            onClick={() => backToOrderHistory()}
-          >
-            Back
-          </button>
-        </div>
       </div>
     </div>
   );

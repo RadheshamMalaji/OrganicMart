@@ -8,18 +8,18 @@ const PrivacyPolicyScreen = () => {
         <h3>Privacy Policy : </h3>
         <h5>Personal Information</h5>
         <p>
-          Organic Mart Mart (“ORGANIC MART”) is the licensed owner of the brand
-          ORGANIC MART and the website mygreenmart.in (”The Site”). ORGANIC MART
+          MyGreen Mart (“MYGREEN MART”) is the licensed owner of the brand
+          MYGREEN MART and the website mygreenmart.in (”The Site”). MYGREEN MART
           respects your privacy. This Privacy Policy provides succinctly the
-          manner your data collected and used by ORGANIC MART on the Site. As a
+          manner your data collected and used by MYGREEN MART on the Site. As a
           visitor to the Site/ Customer you are advised to please read the
           Privacy Policy carefully. By accessing the services provided by the
-          Site you agree to the collection and use of your data by ORGANIC MART
+          Site you agree to the collection and use of your data by MYGREEN MART
           in the manner provided in this Privacy Policy.
         </p>
         <h5>What information is, or may be, collected form you?</h5>
         <p>
-          As part of the registration process on the Site, ORGANIC MART may
+          As part of the registration process on the Site, MYGREEN MART may
           collect the following personally identifiable information about you:
           Name including first and last name, alternate email address, mobile
           phone number and contact details, Postal code, Demographic profile

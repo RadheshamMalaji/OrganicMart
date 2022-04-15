@@ -30,15 +30,11 @@ const DeliveredOrdersScreen = (props) => {
   };
 
   return (
-    <div className="com-bgimg1 vh-100">
-      <div className="sticky-top">
-        <Navigation />
-      </div>
-      <div className="container" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
-        <h2 className="text-center fa fa-th-list fs-1 text-light">
-          Delivered Orders History
-        </h2>
-        <table className="table table-striped text-light">
+    <div>
+      <Navigation />
+      <div className="container">
+        <h2 className="text-center">Delivered Orders History</h2>
+        <table className="table table-striped">
           <thead>
             <tr>
               <th>Orders Amount</th>
@@ -60,7 +56,7 @@ const DeliveredOrdersScreen = (props) => {
             {orders.map(
               (order) =>
                 order.orderDeliveryStatus === "DELIVERED" && (
-                  <tr key={order.id} className=" fw-bold text-light">
+                  <tr key={order.id}>
                     <td>{order.totalPrice}</td>
                     <td>{order.orderDate}</td>
                     <td className="nameColor1">
@@ -69,7 +65,7 @@ const DeliveredOrdersScreen = (props) => {
                     <td>{order.deliveryDate}</td>
                     <td>
                       <button
-                        className="btn btn-success fw-bold"
+                        className="btn4 btn-success"
                         onClick={() => addressDetails(order.id)}
                       >
                         Address
@@ -77,7 +73,7 @@ const DeliveredOrdersScreen = (props) => {
                     </td>
                     <td>
                       <button
-                        className="btn btn-warning fw-bold"
+                        className="btn4 btn-success"
                         onClick={() => orderDetails(order.id)}
                       >
                         Details

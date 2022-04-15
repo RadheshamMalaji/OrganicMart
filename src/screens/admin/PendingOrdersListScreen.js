@@ -22,15 +22,11 @@ const PendingOrdersListScreen = (props) => {
   };
 
   return (
-    <div className="com-bgimg1 vh-100">
-      <div className="sticky-top">
-        <Navigation />
-      </div>
-      <div className="container" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
-        <h2 className="text-center fa fa-list-ul fs-1 text-light">
-          Pending Orders History
-        </h2>
-        <table className="table table-striped text-light">
+    <div>
+      <Navigation />
+      <div className="container">
+        <h2 className="text-center">Pending Orders History</h2>
+        <table className="table table-striped">
           <thead>
             <tr>
               <th>Order ID</th>
@@ -52,11 +48,7 @@ const PendingOrdersListScreen = (props) => {
             {orders.map(
               (order) =>
                 order.orderDeliveryStatus === "PENDING" && (
-                  <tr
-                    key={order.id}
-                    className="fw-bold"
-                    style={{ color: "#E8E3E1FC" }}
-                  >
+                  <tr key={order.id}>
                     <td>{order.id}</td>
                     <td>{order.totalPrice}</td>
                     <td>{order.orderDate}</td>
@@ -66,7 +58,7 @@ const PendingOrdersListScreen = (props) => {
                     <td>{order.deliveryDate}</td>
                     <td>
                       <button
-                        className="btn4 btn-success fw-bold"
+                        className="btn4 btn-success"
                         onClick={() => orderDetails(order.id)}
                       >
                         Details

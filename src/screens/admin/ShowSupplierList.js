@@ -22,15 +22,11 @@ const SupplierListScreen = (props) => {
   };
 
   return (
-    <div className="com-bgimg1 vh-100">
-      <div className="sticky-top">
-        <Navigation />
-      </div>
-      <div className="container" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
-        <h2 className="text-center fa fa-list-ul fs-1 text-light">
-          Supplier List
-        </h2>
-        <table className="table table-striped text-light">
+    <div>
+      <Navigation />
+      <div className="container">
+        <h2 className="text-center">Supplier List</h2>
+        <table className="table table-striped">
           <thead>
             <tr>
               <th>First Name</th>
@@ -47,7 +43,7 @@ const SupplierListScreen = (props) => {
               <h5 className="nameColor1">{suppliers.length == 0 && message}</h5>
             </div>
             {suppliers.map((supplier) => (
-              <tr key={supplier.id} className="fw-bold text-light">
+              <tr key={supplier.id}>
                 <td>{supplier.firstName}</td>
                 <td>{supplier.lastName}</td>
                 <td>{supplier.email}</td>
@@ -55,7 +51,7 @@ const SupplierListScreen = (props) => {
                 <td>
                   <Link
                     to={"/supplier/showproductsbysupplier/" + supplier.id}
-                    className="btn btn-success fw-bold"
+                    className="btn btn-success"
                   >
                     Check Products
                   </Link>
@@ -63,7 +59,7 @@ const SupplierListScreen = (props) => {
                 <td>
                   <Link
                     to={"/addproductfromsupplier/" + supplier.id}
-                    className="btn btn-success fw-bold"
+                    className="btn btn-success"
                   >
                     Check Available Products
                   </Link>
@@ -71,7 +67,7 @@ const SupplierListScreen = (props) => {
                 <td>
                   <Link
                     to={"/supplieraddress/" + supplier.id}
-                    className="btn btn-success fw-bold"
+                    className="btn btn-success"
                   >
                     Address
                   </Link>
@@ -80,15 +76,10 @@ const SupplierListScreen = (props) => {
             ))}
           </tbody>
           <br></br>
-        </table>
-        <div className="d-flex justify-content-end pb-3">
-          <button
-            className=" btn btn-warning fw-bold"
-            onClick={() => addSupplier()}
-          >
+          <button className="btn4 btn-success" onClick={() => addSupplier()}>
             Add Supplier
           </button>
-        </div>
+        </table>
       </div>
     </div>
   );

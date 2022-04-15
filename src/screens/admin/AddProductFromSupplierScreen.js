@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import Navigation from "../../components/Navigation";
 import ApiSupplierService from "../../services/supplier/ApiSupplierService";
-import Swal from "sweetalert2";
 
 const AddProductFromSupplierScreen = (props) => {
   const [products, setProducts] = useState([]);
   const [categoryName, setCategoryName] = useState("");
   useEffect(() => {
     const supplierId = props.match.params.id;
-    console.log(supplierId);
+
     ApiSupplierService.fetchSuppliedProducts(supplierId).then((res) => {
       setProducts(res.data.result);
     });
@@ -32,24 +31,20 @@ const AddProductFromSupplierScreen = (props) => {
     };
 
     ApiSupplierService.addProduct(categoryName, product).then((res) => {
-      Swal.fire("Product Added successfully", "", "success");
-      //alert("Product Added successfully");
+      alert("Product Added successfully");
     });
 
     ApiSupplierService.deleteFromSuppliedProducts(p.id).then((res) => {
-      // Swal.fire("Product Added successfully", "", "success");
-      // alert("Product Added successfully");
+      alert("Product Added successfully");
       window.location.reload();
     });
   };
 
   return (
-    <div className="com-bgimg1 vh-100">
-      <div className="sticky-top">
-        <Navigation />
-      </div>
-      <div className="container" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
-        <table class="table table-striped text-light">
+    <div>
+      <Navigation />
+      <div className="container">
+        <table class="table table-striped">
           <thead>
             <tr>
               <th scope="col">Product id</th>
@@ -71,7 +66,7 @@ const AddProductFromSupplierScreen = (props) => {
             ) : (
               products !== null &&
               products.map((product) => (
-                <tr className="fw-bold" style={{ color: "#E8E3E1FC" }}>
+                <tr>
                   <td>{product.id}</td>
                   <td>{product.productName}</td>
                   <td>{product.suppliedCategory.categoryName}</td>
@@ -82,7 +77,7 @@ const AddProductFromSupplierScreen = (props) => {
                   <td>{product.grams}</td>
                   <td>
                     <button
-                      className="btn btn-success fw-bold"
+                      className="btn4 btn-danger"
                       onClick={() => addProductFromSupplier(product)}
                     >
                       Add Product

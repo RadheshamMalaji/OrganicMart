@@ -1,6 +1,7 @@
 import Navigation from "../../components/Navigation";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
 import React, { useEffect, useState } from "react";
+import Header from "../../components/Header";
 
 const AddressDetailsScreen1 = (props) => {
   const [userDetails, setUserDetails] = useState([]);
@@ -18,42 +19,29 @@ const AddressDetailsScreen1 = (props) => {
       //let user = res.data.result;
       console.log("Oder ID : ");
       console.log(window.localStorage.getItem("orderIdForDetails"));
-      console.log("getUserDetails");
       console.log(res.data.result);
       setUserDetails(res.data.result);
     });
 
     ApiCustomerService.getOrderAddress(
-      window.localStorage.getItem("orderIdForDetails")
+      window.localStorage.getItem("orderIdForDetails") - 1
     ).then((res) => {
       // let address = res.data.result;
-      console.log("getOrderAddress");
       console.log(res.data.result);
-      console.log(window.localStorage.getItem("orderIdForDetails"));
+      console.log(window.localStorage.getItem("orderIdForDetails") - 1);
       setOredrAdd(res.data.result);
     });
   }, []);
 
   return (
-    <div className="com-bgimg1 ">
-      <div className="sticky-top">
-        <Navigation />
-      </div>
-      <div
-        className="main vh-90"
-        style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
-      >
-        <ul class="d-flex justify-content-center">
-          <i class="fa fa-map-marker fs-1 text-light " aria-hidden="true">
-            Delivery Address
-          </i>
-        </ul>
+    <div>
+      <Navigation />
+      <div className="main">
+        <Header title="Delivery Address" />
         <br />
         <div className="form">
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label fw-bold text-light">
-              First Name
-            </label>
+            <label className="col-sm-4 col-form-label">First Name</label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -66,9 +54,7 @@ const AddressDetailsScreen1 = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label fw-bold text-light">
-              Last Name
-            </label>
+            <label className="col-sm-4 col-form-label">Last Name</label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -81,9 +67,7 @@ const AddressDetailsScreen1 = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label fw-bold text-light">
-              Email
-            </label>
+            <label className="col-sm-4 col-form-label">Email</label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -96,9 +80,7 @@ const AddressDetailsScreen1 = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label fw-bold text-light">
-              Phone
-            </label>
+            <label className="col-sm-4 col-form-label">Phone</label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -111,9 +93,7 @@ const AddressDetailsScreen1 = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label fw-bold text-light">
-              Flat No
-            </label>
+            <label className="col-sm-4 col-form-label">Flat No</label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -126,9 +106,7 @@ const AddressDetailsScreen1 = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label fw-bold text-light">
-              Society Name{" "}
-            </label>
+            <label className="col-sm-4 col-form-label">Society Name </label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -141,9 +119,7 @@ const AddressDetailsScreen1 = (props) => {
           </div>
 
           <div class="row mb-3">
-            <label className="col-sm-4 col-form-label fw-bold text-light">
-              Area
-            </label>
+            <label className="col-sm-4 col-form-label">Area</label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -156,9 +132,7 @@ const AddressDetailsScreen1 = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label fw-bold text-light">
-              City
-            </label>
+            <label className="col-sm-4 col-form-label">City</label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -171,9 +145,7 @@ const AddressDetailsScreen1 = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label fw-bold text-light">
-              pincode
-            </label>
+            <label className="col-sm-4 col-form-label">pincode</label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -186,9 +158,7 @@ const AddressDetailsScreen1 = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label className="col-sm-4 col-form-label fw-bold text-light">
-              state
-            </label>
+            <label className="col-sm-4 col-form-label">state</label>
             <div className="col-sm-8">
               <input
                 type="text"
@@ -201,7 +171,7 @@ const AddressDetailsScreen1 = (props) => {
           </div>
           <div className="mb-3">
             <button
-              className="btn btn-success float-end fw-bold"
+              className="btn4 btn-success float-end"
               onClick={backToOrderHistory}
             >
               Back
