@@ -76,12 +76,6 @@ const LoginScreen = (props) => {
             </div>
             <div className="col-lg-6 p-0">
               <div className="m-auto w-75 pt-5 pb-5 align-self-center ">
-                {/* <h1
-                  className="text-center fw-bold mb-3"
-                  style={{ color: "green" }}
-                >
-                  Organic Mart
-                </h1> */}
                 <h1 className="text-center display-4">Login</h1>
 
                 <form className="row g-3 mt-3">
@@ -98,19 +92,6 @@ const LoginScreen = (props) => {
                       <label for="floatingInput">Email address</label>
                     </div>
                   </div>
-                  {/* <div className="col-md-12">
-                    <label for="email" class="form-label fs-5">
-                      Email-ID
-                    </label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      placeholder="name@gmail.com"
-                      name="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </div> */}
 
                   <div className="col-md-12 mt-4">
                     <div class="form-floating">
