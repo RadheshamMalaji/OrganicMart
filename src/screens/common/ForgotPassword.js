@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import "./Login.css";
+import "./Form.css";
 import swal from "sweetalert2";
 const ForgotPassword = (e) => {
   const history = useHistory();

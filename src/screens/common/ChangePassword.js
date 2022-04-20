@@ -14,7 +14,6 @@ const ChangePasswordScreen = (props) => {
     e.preventDefault();
     ApiCustomerService.editUserPassword(id, password).then((res) => {
       Swal.fire("Password Changed successfully", "", "success");
-      //alert("Password Changed successfully");
       window.localStorage.getItem("user_role") === "CUSTOMER" &&
         props.history.push("/home");
       window.localStorage.getItem("user_role") === "SUPPLIER" &&

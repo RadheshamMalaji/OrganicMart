@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "../../components/Navigation";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
+import Swal from "sweetalert2";
+
 const HomeScreen = (props) => {
   const [category, setCategory] = useState([]);
   const [products, setProducts] = useState([]);
@@ -54,7 +56,7 @@ const HomeScreen = (props) => {
     ApiCustomerService.addProductToCart(productCartId).then((res) => {
       setMessage(res.data.result);
     });
-    alert("!!! Items Added to Cart !!!");
+    Swal.fire("Items Added to Cart", "", "success");
     JSON.stringify(
       window.localStorage.setItem(
         "cart_size",

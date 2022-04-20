@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Navigation from "../../components/Navigation";
 import { useEffect, useState } from "react";
 import ApiSupplierService from "../../services/supplier/ApiSupplierService";
-
+import Swal from "sweetalert2";
 const UpdateProductScreen = (props) => {
   const [updateProducts, setUpdateProducts] = useState([]);
   const [productName, setProductName] = useState("");
@@ -46,7 +46,8 @@ const UpdateProductScreen = (props) => {
     };
 
     ApiSupplierService.updateProduct(product).then((res) => {
-      alert("Product Updates successfully");
+      Swal.fire("Product Updates successfully", "", "success");
+      //alert("Product Updates successfully");
       props.history.push("/supplier/showproducts");
     });
   };
@@ -129,14 +130,7 @@ const UpdateProductScreen = (props) => {
               />
             </div>
           </div>
-          {/* 
-            <div class="row mb-3">
-                <label class="col-sm-2 col-form-label">Final Price</label>
-                <div class="col-sm-10">
-                    <input type="number" class="form-control" name="finalPrice" value={this.state.finalPrice} onChange={this.onChange} />
-                </div>
-            </div>
-*/}
+
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label fw-bold text-light">
               Quantity

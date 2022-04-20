@@ -33,12 +33,9 @@ const AddProductFromSupplierScreen = (props) => {
 
     ApiSupplierService.addProduct(categoryName, product).then((res) => {
       Swal.fire("Product Added successfully", "", "success");
-      //alert("Product Added successfully");
     });
 
     ApiSupplierService.deleteFromSuppliedProducts(p.id).then((res) => {
-      // Swal.fire("Product Added successfully", "", "success");
-      // alert("Product Added successfully");
       window.location.reload();
     });
   };

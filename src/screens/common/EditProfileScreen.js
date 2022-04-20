@@ -1,7 +1,6 @@
 import Navigation from "../../components/Navigation";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
 import React, { useEffect, useState } from "react";
-import Header from "../../components/Header";
 
 const EditProfileScreen = (props) => {
   const [state, setState] = useState({
@@ -138,7 +137,7 @@ const EditProfileScreen = (props) => {
           </div>
           <div className="mb-3">
             <button
-              className="btn4 btn-success float-end fw-bold"
+              className="btn btn-success float-end fw-bold"
               onClick={editUser}
             >
               Edit Profile

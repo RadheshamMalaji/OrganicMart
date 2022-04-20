@@ -30,7 +30,7 @@ const AdminOrdersDetailsForDeliveredScreen = (props) => {
         <h2 className="text-center  fa fa-info-circle fs-1 text-light">
           Orders Details
         </h2>
-        <table className="table table-striped">
+        <table className="table table-striped text-light">
           <thead>
             <tr>
               <th>Product Name</th>
@@ -41,7 +41,7 @@ const AdminOrdersDetailsForDeliveredScreen = (props) => {
           </thead>
           <tbody>
             {orderDetails.map((order) => (
-              <tr className="fw-bold" style={{ color: "white" }}>
+              <tr className="fw-bold text-light">
                 <td>{order.productName}</td>
                 <td>{order.qty}</td>
                 <td>{order.grams}</td>
@@ -52,7 +52,7 @@ const AdminOrdersDetailsForDeliveredScreen = (props) => {
         </table>
         <div className="d-flex justify-content-end m-3 pb-3">
           <button
-            className="btn4 btn-success fw-bold"
+            className="btn btn-success fw-bold"
             onClick={() => backToOrderHistory()}
           >
             Back

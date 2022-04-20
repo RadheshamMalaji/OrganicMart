@@ -29,7 +29,6 @@ const AddDeliveryBoyScreen = (props) => {
       }
       if (res.data.result !== null) {
         Swal.fire("DELIVERY_BOY Add successfully", "", "success");
-        //alert("DELIVERY_BOY Add successfully");
         setMessage("DELIVERY_BOY Add successfully.");
         props.history.push("/showdeliveryboy");
       }
@@ -43,12 +42,9 @@ const AddDeliveryBoyScreen = (props) => {
       </div>
       <div className="main" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
         <ul class="d-flex justify-content-center">
-          {/* <i className="fa fa-plus-square fs-1 " aria-hidden="true">
-            &nbsp;
-          </i> */}
           <div
             title="Add Delivery Boy Account "
-            className="fs-1 fw-bold text-light"
+            className="fs-1 fa fa-plus-square fw-bold text-light"
           >
             Add Delivery Boy
           </div>
@@ -142,7 +138,7 @@ const AddDeliveryBoyScreen = (props) => {
 
           <div className="mb-3 d-flex justify-content-end">
             <button
-              className="btn4 btn-success float-start fw-bold"
+              className="btn btn-success float-start fw-bold"
               onClick={registerUser}
             >
               Add Delivery Boy

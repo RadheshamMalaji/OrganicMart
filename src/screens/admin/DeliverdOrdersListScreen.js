@@ -61,7 +61,7 @@ const DeliveredOrdersListScreen = (props) => {
                     <td>{order.deliveryDate}</td>
                     <td>
                       <button
-                        className="btn4 btn-success fw-bold"
+                        className="btn btn-success fw-bold"
                         onClick={() => orderDetails(order.id)}
                       >
                         Details

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navigation from "../../components/Navigation";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
+import Swal from "sweetalert2";
 
 const CartScreen = (props) => {
   const [cart, setCart] = useState([]);
@@ -40,7 +41,8 @@ const CartScreen = (props) => {
   const placeOrder = () => {
     let size = JSON.parse(window.localStorage.getItem("cart_size"));
     if (size === 0) {
-      alert(" !!! Cart Is Empty !!!");
+      Swal.fire("Cart Is Empty", "", "warning");
+      // alert(" !!! Cart Is Empty !!!");
     }
     if (size !== 0) {
       !st && props.history.push("/login");
@@ -98,7 +100,7 @@ const CartScreen = (props) => {
                   <td>{product.grams}</td>
                   <td>
                     <button
-                      className="btn4 btn-danger"
+                      className="btn btn-danger"
                       onClick={() => deleteProduct(product.id, product.qty)}
                     >
                       Delete

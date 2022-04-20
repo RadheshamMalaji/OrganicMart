@@ -37,7 +37,7 @@ const ChangeAddressScreen = (props) => {
     ApiCustomerService.editUserAddress(id, addr).then((res) => {
       let message = res.data.result;
       Swal.fire("Address Update successfully", "", "success");
-      // alert("Address Update successfully");
+
       window.localStorage.getItem("user_role") === "CUSTOMER" &&
         props.history.push("/home");
       window.localStorage.getItem("user_role") === "SUPPLIER" &&
@@ -161,7 +161,7 @@ const ChangeAddressScreen = (props) => {
           </div>
           <div className="mb-3">
             <button
-              className="btn4 btn-success float-end fw-bold"
+              className="btn btn-success float-end fw-bold"
               onClick={editAddress}
             >
               Update Address

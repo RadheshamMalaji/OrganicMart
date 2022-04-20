@@ -27,7 +27,6 @@ const AddSupplierScreen = (props) => {
     ApiCustomerService.addSupplier(categoryName, user).then((res) => {
       if (res.data.result === null) {
         Swal.fire("Email Addreess Already Registered", "", "error");
-        // alert("Email Addreess Already Registered");
       }
       if (res.data.result !== null) {
         Swal.fire("Supplier Add successfully", "", "success");
@@ -44,10 +43,6 @@ const AddSupplierScreen = (props) => {
       </div>
       <div className="main" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
         <ul class="d-flex justify-content-center">
-          {/* <i class="fa fa-plus-square fs-1 " aria-hidden="true">
-            &nbsp;
-          </i> */}
-
           <div title="Add Supplier Account" class="fs-1 fw-bold text-light">
             Add Supplier Account
           </div>
@@ -145,7 +140,6 @@ const AddSupplierScreen = (props) => {
             </label>
             <div className="col-sm-8">
               <div>
-                {/* <label htmlFor="role" className="formFieldLabel"></label> */}
                 <select
                   id="category"
                   name="category"
@@ -173,7 +167,7 @@ const AddSupplierScreen = (props) => {
 
           <div className="mb-3">
             <button
-              className="btn4 btn-success float-end fw-bold"
+              className="btn btn-success float-end fw-bold"
               onClick={registerUser}
             >
               Add Address

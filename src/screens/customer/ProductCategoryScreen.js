@@ -1,6 +1,7 @@
 import Navigation from "../../components/Navigation";
 import React, { useEffect, useState } from "react";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
+import Swal from "sweetalert2";
 const ProductCategoryScreen = (props) => {
   const [message, setMessage] = useState("");
   const [products, setProducts] = useState([]);
@@ -26,7 +27,8 @@ const ProductCategoryScreen = (props) => {
     ApiCustomerService.addProductToCart(productCartId).then((res) => {
       setMessage(res.data.result);
     });
-    alert("!!! Items Added to Cart !!!");
+    Swal.fire(" Items Added to Cart ", "", "success");
+    // alert("!!! Items Added to Cart !!!");
     JSON.stringify(
       window.localStorage.setItem(
         "cart_size",

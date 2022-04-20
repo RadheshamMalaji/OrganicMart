@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import ApiSupplierService from "../../services/supplier/ApiSupplierService";
 import "../../App.css";
 import Swal from "sweetalert2";
+
 const AddAddressScreen = (props) => {
   const [flatNo, setflatNo] = useState("");
   const [societyName, setsocietyName] = useState("");
@@ -30,7 +31,6 @@ const AddAddressScreen = (props) => {
     ApiSupplierService.addAddress(supplierId, addr).then((res) => {
       let message = res.data.result;
       Swal.fire("Supplier Registered Successfully", "", "success");
-      //alert("Supplier Registered Successfully");
       props.history.push("/adminhome");
     });
   };

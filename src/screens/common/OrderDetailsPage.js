@@ -51,7 +51,7 @@ const OrderDetailsPageScreen = (props) => {
           </tbody>
           <td>
             <button
-              className="btn4 btn-success fw-bold"
+              className="btn btn-success fw-bold"
               onClick={() => backToOrderHistory()}
             >
               Back

@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import Navigation from "../../components/Navigation";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
 import React, { useEffect, useState } from "react";
-import Header from "../../components/Header";
 
 const SupplierAddress = (props) => {
   const [supplierAdd, setSupplierAdd] = useState([]);
@@ -24,10 +23,6 @@ const SupplierAddress = (props) => {
       </div>
       <div className="main" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
         <ul class="d-flex justify-content-center">
-          {/* <i class="fa fa-map-marker fs-1 " aria-hidden="true">
-            &nbsp;
-          </i> */}
-
           <div
             className="fa fa-map-marker fs-1 text-light"
             title="Delivery Address "
@@ -37,10 +32,7 @@ const SupplierAddress = (props) => {
         <br />
         <div className="form">
           <div className="row mb-3">
-            <label
-              className="col-sm-4 col-form-label fw-bold"
-              style={{ color: "#E8E3E1FC" }}
-            >
+            <label className="col-sm-4 col-form-label fw-bold text-light">
               Flat No
             </label>
             <div className="col-sm-8">
@@ -55,10 +47,7 @@ const SupplierAddress = (props) => {
           </div>
 
           <div className="row mb-3">
-            <label
-              className="col-sm-4 col-form-label fw-bold"
-              style={{ color: "#E8E3E1FC" }}
-            >
+            <label className="col-sm-4 col-form-label fw-bold text-light">
               Society Name{" "}
             </label>
             <div className="col-sm-8">
@@ -73,10 +62,7 @@ const SupplierAddress = (props) => {
           </div>
 
           <div class="row mb-3">
-            <label
-              className="col-sm-4 col-form-label fw-bold"
-              style={{ color: "#E8E3E1FC" }}
-            >
+            <label className="col-sm-4 col-form-label fw-bold text-light">
               Area
             </label>
             <div className="col-sm-8">

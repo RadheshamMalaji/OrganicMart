@@ -44,11 +44,7 @@ const DeliveryBoyListScreen = (props) => {
               <h5 className="nameColor1">{boys.length == 0 && message}</h5>
             </div>
             {boys.map((boy) => (
-              <tr
-                key={boy.id}
-                className="fw-bold"
-                style={{ color: "#E8E3E1FC" }}
-              >
+              <tr key={boy.id} className="fw-bold text-light">
                 <td>{boy.firstName}</td>
                 <td>{boy.lastName}</td>
                 <td>{boy.email}</td>
@@ -59,7 +55,7 @@ const DeliveryBoyListScreen = (props) => {
         </table>
         <div className="d-flex justify-content-end m-3 pb-3">
           <button
-            className="btn4 btn-success float-end fw-bold"
+            className="btn btn-success float-end fw-bold"
             onClick={() => addDeliveryBoy()}
           >
             Add Delivery Boy

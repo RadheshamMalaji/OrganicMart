@@ -164,7 +164,6 @@ const OrderAddressScreen = (props) => {
   const addDetails = () => {
     addOrder();
     Swal.fire("Good job!", "Congrates!! Payment successful !!", "success");
-    //alert("Payment Done");
     window.localStorage.removeItem("cart_size");
     window.localStorage.removeItem("deliveryBoyId");
     window.localStorage.removeItem("orderId");

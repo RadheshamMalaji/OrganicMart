@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Navigation from "../../components/Navigation";
 import ApiCustomerService from "../../services/customer/ApiCustomerService";
 import loginimg from "../../components/logo.jpg";
+import Swal from "sweetalert2";
+
 const LoginScreen = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,7 +39,7 @@ const LoginScreen = (props) => {
     ApiCustomerService.fetchUserByLoginrequest(loginRequest).then((res) => {
       let user = res.data.result;
       user == null && setMessage("Invalid Login Credentials");
-      user != null && alert("User Login successfully By " + user.role);
+      user != null && Swal.fire("User Login successfully", "", "success");
       user != null && setMessage("User Login successfully.");
       user != null && window.localStorage.setItem("status", true);
       user != null && window.localStorage.setItem("user_fname", user.firstName);

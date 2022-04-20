@@ -2,7 +2,7 @@ import "../../App.css";
 import Navigation from "../../components/Navigation";
 import { useEffect, useState } from "react";
 import ApiSupplierService from "../../services/supplier/ApiSupplierService";
-
+import Swal from "sweetalert2";
 const AddProductScreen = (props) => {
   const [productName, setProductName] = useState("");
   const [description, setDescription] = useState("");
@@ -42,7 +42,8 @@ const AddProductScreen = (props) => {
 
     ApiSupplierService.addProductBySupplier(categoryName, product).then(
       (res) => {
-        alert("Product Added successfully");
+        Swal.fire("Product Added successfully", "", "success");
+        //alert("Product Added successfully");
         props.history.push("/supplierhome");
       }
     );

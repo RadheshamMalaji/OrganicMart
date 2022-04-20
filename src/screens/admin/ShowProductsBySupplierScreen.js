@@ -12,6 +12,7 @@ const ShowProductsBySupplierScreen = (props) => {
     ApiSupplierService.fetchProductsBySupplierId(props.match.params.id).then(
       (res) => {
         setProducts(res.data.result);
+        console.log(products);
       }
     );
 
@@ -73,7 +74,7 @@ const ShowProductsBySupplierScreen = (props) => {
                   <td>{product.qty}</td>
                   <td>
                     <button
-                      className="btn4 btn-danger"
+                      className="btn btn-danger"
                       onClick={() => deleteProduct(product.id)}
                     >
                       Delete Product

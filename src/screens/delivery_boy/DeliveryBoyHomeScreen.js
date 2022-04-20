@@ -1,6 +1,6 @@
 import Navigation from "../../components/Navigation";
 
-import React, { Component } from "react";
+import React from "react";
 
 const DeliveryBoyHomeScreen = (props) => {
   const showProfile = () => {

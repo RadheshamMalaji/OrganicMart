@@ -2,8 +2,8 @@ import "../../App.css";
 import Navigation from "../../components/Navigation";
 import React, { useState } from "react";
 import validator from "validator";
-import loginimg from "../../components/logo.jpg";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function CreateAccountScreen() {
   return (
@@ -112,9 +112,10 @@ function RegisterUser() {
       let msg = response.data;
       if ((msg = "cutomer added succesfully")) {
         window.location.href = "/login";
-        alert("You have successfully registered");
+        Swal.fire("You have successfully registered", "", "success");
       } else {
-        alert("Customer not added");
+        Swal.fire("Customer not added", "", "error");
+        //alert("Customer not added");
       }
     });
   };
