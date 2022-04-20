@@ -29,7 +29,7 @@ const AddAddressScreen = (props) => {
       state: state,
     };
     ApiSupplierService.addAddress(supplierId, addr).then((res) => {
-      let message = res.data.result;
+      // let message = res.data.result;
       Swal.fire("Supplier Registered Successfully", "", "success");
       props.history.push("/adminhome");
     });
